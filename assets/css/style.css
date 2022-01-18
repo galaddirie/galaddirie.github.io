@@ -692,7 +692,8 @@ h2{
   font-size: .9em;
   color: black;
   border-radius: 3px;
-  margin-right: 5px;
+  margin:0 5px 10px 0;
+  background-color: rgb(231, 231, 231);
 }
 .python{
   background-color: rgb(173, 173, 253);

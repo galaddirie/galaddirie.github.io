@@ -1,4 +1,4 @@
-OFFSET = 850
+OFFSET = 650
 function skillGraph(graphContent) {
   var i;
   var x = document.getElementsByClassName("graph-content");
