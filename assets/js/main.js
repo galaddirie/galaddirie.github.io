@@ -1,19 +1,46 @@
-OFFSET = 650
-function skillGraph(graphContent) {
-  var i;
-  var x = document.getElementsByClassName("graph-content");
-  for (i = 0; i < x.length; i++) {
-    x[i].style.display = "none";
-  }
-  document.getElementById(graphContent).style.display = "block";
-  const el = document.getElementById(graphContent)
-  const yOffset = -350
-  const y = el.getBoundingClientRect().top + window.scrollY + yOffset;
-  window.scrollTo({
-    top: y,
-    behavior: 'smooth'
-  })
+OFFSET = 500
+
+window.onload = function (e) {
+  let loader = document.querySelector('#loading-screen')
+  loader.hidden = true
 }
+
+const button = document.querySelector("#enter-button");
+const muteBtn = document.querySelector("#audio-play");
+const muteBtnIcon = document.querySelector(".audio-btn");
+const clickSound = document.querySelector(".click-sound");
+const audio = document.querySelector(".bg-music");
+const enterScreen = document.querySelector("#enter-screen")
+button.addEventListener("click", () => {
+  clickSound.volume = 0.1;
+  clickSound.currentTime = .6;
+  clickSound.play();
+
+  setTimeout(function () {
+    audio.volume = 0.1;
+    audio.play();
+    enterScreen.classList.add("fade")
+    setTimeout(function () {
+      enterScreen.remove();
+    }, 300)
+  }, 500)
+  button.classList.add("fade");
+});
+
+muteBtn.addEventListener("click", () => {
+  if (audio.paused) {
+    audio.volume = 0.1;
+    audio.play();
+    muteBtnIcon.classList.remove('bi-volume-mute-fill');
+    muteBtnIcon.classList.add('bi-volume-up-fill');
+
+  } else {
+    audio.pause();
+
+    muteBtnIcon.classList.remove('bi-volume-up-fill');
+    muteBtnIcon.classList.add('bi-volume-mute-fill');
+  }
+})
 
 function heroScroll() {
   window.scrollTo({
@@ -31,6 +58,8 @@ function scrollBtn(id) {
     behavior: 'smooth'
   })
 }
+
+
 
 (function () {
   "use strict";
@@ -73,7 +102,7 @@ function scrollBtn(id) {
    */
   let navbarlinks = select('#navbar .scrollto', true)
   const navbarlinksActive = () => {
-    let position = window.scrollY - OFFSET
+    let position = window.scrollY - OFFSET + 300
     navbarlinks.forEach(navbarlink => {
       if (!navbarlink.hash) return
       let section = select(navbarlink.hash)
