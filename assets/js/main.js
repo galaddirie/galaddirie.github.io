@@ -5,43 +5,6 @@ window.onload = function (e) {
   loader.hidden = true
 }
 
-const button = document.querySelector("#enter-button");
-const muteBtn = document.querySelector("#audio-play");
-const muteBtnIcon = document.querySelector(".audio-btn");
-const clickSound = document.querySelector(".click-sound");
-const audio = document.querySelector(".bg-music");
-const enterScreen = document.querySelector("#enter-screen")
-button.addEventListener("click", () => {
-  clickSound.volume = 0.1;
-  clickSound.currentTime = .6;
-  clickSound.play();
-
-  setTimeout(function () {
-    audio.volume = 0.1;
-    audio.play();
-    enterScreen.classList.add("fade")
-    setTimeout(function () {
-      enterScreen.remove();
-    }, 300)
-  }, 500)
-  button.classList.add("fade");
-});
-
-muteBtn.addEventListener("click", () => {
-  if (audio.paused) {
-    audio.volume = 0.1;
-    audio.play();
-    muteBtnIcon.classList.remove('bi-volume-mute-fill');
-    muteBtnIcon.classList.add('bi-volume-up-fill');
-
-  } else {
-    audio.pause();
-
-    muteBtnIcon.classList.remove('bi-volume-up-fill');
-    muteBtnIcon.classList.add('bi-volume-mute-fill');
-  }
-})
-
 function heroScroll() {
   window.scrollTo({
     top: 0,

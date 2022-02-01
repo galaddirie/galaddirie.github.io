@@ -438,6 +438,9 @@ h2{
   height: 100vh;
   background-color: black;
 }
+.fade{
+  transition: 1s ease;
+}
 /*--------------------------------------------------------------
 # Hero Section
 --------------------------------------------------------------*/
@@ -723,7 +726,7 @@ h2{
   content: "";
 	
   position: absolute;
-  top: 100px;
+  top: 80px;
   z-index: -1;
   width: 33%;
   height: 100%;
