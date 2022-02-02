@@ -597,7 +597,7 @@ h2{
 
 .main-container{
   position: relative;
-  top:-250px;
+  top:-150px;
   
 
 }
@@ -628,7 +628,7 @@ h2{
 @media (max-width: 992px) {
   .main-container{
     position: relative;
-    top:-250px;
+    top:-150px;
     
   }
   #projects-container{
