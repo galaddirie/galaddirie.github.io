@@ -132,26 +132,26 @@
                       <div class="card-tags mb-3">
                         <div class="python skill-icon"></div>
                         <div class="django skill-icon"></div>
+                        <div class="redis skill-icon"></div>
+                        <div class="aws-s3 skill-icon"></div>
+                        <div class="postgresql skill-icon"></div>
+                        
                       </div>
-                      <p class="card-text pt-2 border-top">
+                      <div class="card-text pt-2 border-top">
                         <ul>
                           <li>
-                            A real-time Multiplayer Chess game web application leveraging websockets. 
+                            Developed a real-time multiplayer chess game web application leveraging websockets. 
                           </li>
                           <li>
-                            Users are able to play games as anonymous guests 
-                            or able to sign up as a authrized user to store their games.
+                            Implemented sessions to temporarily create a profile through local storage for anonymous 
+                            users, to grant persistent access to live games and to ensure only valid players can participate
                           </li>
                           <li>
-                            Using Django Channels with redis as a backing store
+                            Utilized user authentication and sessions to validate player moves and allow users to save game history
                           </li>
+                          <li>Used Amazon s3 to host static files and user generated content</li>
                         </ul>
-                        
-                        
-                        Application was built in Django with a front facing RESTful API, with plans to extend
-                        the application to bots and Mobile.
-                        User generated content and static files were stored in a S3 bucket
-                      </p>
+                      </div>
                     </div>
                     
   
@@ -179,14 +179,22 @@
                       <div class="card-tags mb-3">
                         <div class="python skill-icon"></div>
                         <div class="django skill-icon"></div>
+                        <div class="ajax skill-icon"></div>
                         
                       </div>
-                      <p class="card-text pt-2 border-top">
-                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. 
-                        At incidunt labore, voluptate ratione recusandae, dolores, 
-                        quia ea architecto qui velit placeat ex enim corrupti numquam 
-                        repudiandae officia illum iste iure!
-                      </p>
+                      <div class="card-text pt-2 border-top">
+                        <ul>
+                          <li>
+                            Created an interactive application that 
+                            allows users to visualize Pathfinding algorithms, generate mazes, and draw obstacles
+                          </li>
+                          <li>The pathfinding algorithms are hosted server-side, the client can make requests using ajax for the shortest path and the board is converted into a graph </li>
+                          <li>Implemented pathfinding algorithms such as A Star, Dijkstra, and Greedy Best First Search</li>
+                          <li>Pathfinding algorithms utilize a min-heap to handle the priority queue</li>
+                          <li>Implemented the Recursive Division maze generation algorithm</li>
+                        </ul>
+                        
+                      </div>
                     </div>
   
                     <div>
@@ -210,14 +218,20 @@
                       <div class="card-tags mb-3">
                         <div class="python skill-icon"></div>
                         <div class="django skill-icon"></div>
-                        
+                        <div class="redis skill-icon"></div>
+                        <div class="ajax skill-icon"></div>
                       </div>
-                      <p class="card-text pt-2 border-top">
-                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. 
-                        At incidunt labore, voluptate ratione recusandae, dolores, 
-                        quia ea architecto qui velit placeat ex enim corrupti numquam 
-                        repudiandae officia illum iste iure!
-                      </p>
+                      <div class="card-text pt-2 border-top">
+                        <ul>
+                          <li>Developed a League of Legends player search engine, using Riot Games External API</li>
+                          <li>Leveraged caches using Redis for recently accessed data from the 
+                            API for reduced calls to the API and faster response times.</li>
+                          <li>Used ajax to lazily load slower API queries such as match histories after main page content is loaded.</li>
+                          <li>Lazily load match content, resulting  in a 10x speed increase in API response</li>
+
+                        </ul>
+
+                      </div>
                     </div>
                     
   
@@ -271,15 +285,12 @@
                 <h2>About Me</h2>
                 <p style="font-size: 1em; font-weight: 700;">Hi there, welcome to my portfolio!
                 </p> 
-                <p>I am Galad Dirie, and I am currently a student at the University of Toronto, 
-                studying Computer Science and CCIT (Communication, Culture, Information & Technology). 
-                I am pursuing a career as a Full Stack developer. I am a self-taught artist and with a formal education in 
-                computer science and web design, I have a strong skill base and I am capable of front-end and back-end  web development. 
-                I have a strong understanding of a cross-disciplinary perspectives of how users interact with 
-                media, technology, commerce, culture, communication, and the impact it has on users. With  my Experience in UX & UI design, 
-                I can build responsive engaging web-based environments and web applications with strong Information Architecture. 
-                I can realize business and project goals by providing metrics-based user experience and interface design. 
-                With a strong understanding of Web Content Accessibility Guidelines (WCAG), I can apply accessibility standards.
+                <p>I am Galad Dirie, and I am pursuing a career as a Full Stack developer! 
+                  I am capable of front-end and back-end web development. With the ability to create functional, 
+                  scalable back-end infrastructure and with my experience in UX and UI design, I can build responsive
+                   and engaging web-based applications with strong information architecture. I have a strong understanding 
+                   of cross-disciplinary perspectives on how users interact with media and technology and the impact that 
+                   it has on users, so I can realise business and project goals with metrics-based user experience and interface design.
                 </p>
                 
                 
@@ -309,12 +320,9 @@
                       <div class="card-body d-flex flex-column justify-content-between">
                           <div class="card-text">
                             
-                            <P class="mb-4">I am quite proficient at this stack; I have a strong mastery over HTML and CSS. 
-                              With strong under standing of accessible  web design, I understand how to create accessible websites starting at the structural level
-                              I have a intermediate mastery with JavaScript, but with a strong familiarity with other  
-                              of other programing languages and concepts I have no issues producing code. I also have strong
-                              skill set in using WordPress and bootstrap frameworks, I have not learned React but plan on doing 
-                              so in the near future.</P>
+                            <P class="mb-4">I am quite proficient at this stack; I have a mastery of JavaScript, HTML, and CSS. 
+                              With a strong understanding of accessible web design, I understand 
+                              how to create accessible websites starting at the structural level. </P>
                             
                           </div>
                           
@@ -342,19 +350,21 @@
                     </div>
                     <div class="card-body d-flex flex-column justify-content-between"> 
                       <div class="card-text">
-                        <P>I have very comfortable programming in python, I have a strong understanding of object-oriented programming.
-                          I use PHP infrequently as my server-side language, but I have a intermediate skill level. My primary server-side 
-                          language is Python using the Django library, I hope to get some more practice using databases and servers. </P>
+                        <P>I am extremely comfortable programming in Python! I have a strong understanding 
+                          of object-oriented programming. It is my primary server-side language, 
+                          using the Django library in combination with the Django REST framework. 
+                          I have a robust understanding of relational databases and have deployed several 
+                          web applications. using heroku and AWS.</P>
                       </div>
                     
                       <div class="card-tags text-start pt-3 border-top">
                         <div class="skill-icon">Python</div>
                         <div class="skill-icon">Django</div>
                         <div class="skill-icon">Django REST framework</div>
-                        <div class="my-sql skill-icon">mySQL</div>
-                        <div class="aws skill-icon">AWS</div>
-                        <div class="redis skill-icon">Redis</div>
-                        <div class="git skill-icon">git</div>
+                        <div class="skill-icon">mySQL</div>
+                        <div class="skill-icon">AWS</div>
+                        <div class="skill-icon">Redis</div>
+                        <div class="skill-icon">git</div>
                       </div> 
                       
                     </div>
@@ -372,10 +382,10 @@
                     <div class="card-body d-flex flex-column justify-content-between">
                       <div class="card-text">
                         
-                        <P>I have a lot of experience inside  the adobe suite, I am very experienced with photoshop, illustrator, InDesign, 
-                          and After Effects. I have worked with these tools  in depth since my childhood. I am self taught in the art department, 
-                          but I have a formal education in  the web design process.  I can create wireframes to prototypes and make several iterations 
-                          quickly to meet expectations.</P>
+                        <P>I have a strong understanding of the web design process. 
+                          I can rapidly develop product iterations, from wireframes to 
+                          functional prototypes, so I can adapt to project goals. I am 
+                          comfortable working with the Adobe suite.</P>
                         
                       </div>
                       
@@ -419,7 +429,9 @@
     <div class="container">
       <div class="copyright">
         <span>2021</span>&copy; <strong><span>Galad Dirie</span></strong>.
-        
+        <div>
+          Original 3d model and Animation by <a href="https://sketchfab.com/3d-models/space-ame-camping-amelia-watson-hololive-56ede5352988499d92892fed6061388e">Seafoam</a>
+        </div>
       </div>
       <div class="credits">
       </div>

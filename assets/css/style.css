@@ -785,13 +785,13 @@ h2{
   display: inline-flex;
   padding: 5px;
   font-size: .9em;
-  color: black;
+  color: rgb(255, 255, 255);
   border-radius: 3px;
   margin:0 5px 10px 0;
-  background-color: rgb(231, 231, 231);
+  background-color: rgb(83, 83, 83);
 }
 .python{
-  background-color: rgb(173, 173, 253);
+  background-color: rgb(45, 84, 255);
 }
 
 .python:after{
@@ -799,11 +799,47 @@ h2{
 }
 
 .django{
-  background-color: mediumspringgreen;
+  background-color: rgb(14, 158, 122);
 }
 .django:after{
   content: "Django";
 }
+
+.websockets{
+  background-color: mediumspringgreen;
+}
+.websockets:after{
+  content: "WebSocket";
+}
+
+.postgresql{
+  background-color: rgb(124, 52, 219);
+}
+.postgresql:after{
+  content: "PostgreSQL";
+}
+
+.redis{
+  background-color: rgb(212, 37, 89);
+}
+.redis:after{
+  content: "Redis";
+}
+
+.aws-s3{
+  background-color: rgb(241, 89, 0);
+}
+.aws-s3:after{
+  content: "AWS S3";
+}
+
+.ajax{
+  background-color: rgb(0, 162, 255);
+}
+.ajax:after{
+  content: "Ajax";
+}
+
 
 /*HOBBIES*/
 .hobby-card{
