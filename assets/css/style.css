@@ -791,7 +791,7 @@ h2{
   background-color: rgb(83, 83, 83);
 }
 .python{
-  background-color: rgb(45, 84, 255);
+  background-color: rgb(36,77,111);
 }
 
 .python:after{
@@ -810,6 +810,12 @@ h2{
 }
 .websockets:after{
   content: "WebSocket";
+}
+.ajax{
+  background-color: rgb(2, 143, 224);
+}
+.ajax:after{
+  content: "Ajax";
 }
 
 .postgresql{
@@ -833,11 +839,18 @@ h2{
   content: "AWS S3";
 }
 
-.ajax{
-  background-color: rgb(2, 143, 224);
+.docker{
+  background-color: #002d68;
 }
-.ajax:after{
-  content: "Ajax";
+.docker:after{
+  content: "Docker";
+}
+
+.k8{
+  background-color: #316CE6;
+}
+.k8:after{
+  content: "Kubernetes";
 }
 
 
