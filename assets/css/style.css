@@ -606,11 +606,11 @@ h2{
 
 /*PROJECTS */
 #projects-container{
-  background: linear-gradient(transparent, #030211 18.5%);
+  background: linear-gradient(transparent, #030211 12.5%);
   
 }
 #projects-container .container{
-  margin-top: 400px;
+  margin-top: 250px;
 }
 
 
@@ -632,7 +632,7 @@ h2{
     
   }
   #projects-container{
-    background: linear-gradient(transparent, #030211 8.5%);
+    background: linear-gradient(transparent, #030211 5.5%);
     
   }
   #projects{
