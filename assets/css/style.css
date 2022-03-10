@@ -715,7 +715,15 @@ h2{
   z-index: 10;
 }
 
+.card-img-container{
+  width: 100%;
+  height: 300px;
+  overflow: hidden;
+}
 
+.card-img{
+  width: 100%;
+}
 .card-container::after{
   content: "";
 	
@@ -783,13 +791,36 @@ h2{
 
 .skill-icon{
   display: inline-flex;
-  padding: 5px;
+  padding: 3px;
   font-size: .9em;
   color: rgb(255, 255, 255);
   border-radius: 3px;
-  margin:0 5px 10px 0;
+  margin:0 3px 10px 0;
   background-color: rgb(83, 83, 83);
 }
+
+.html{
+  background-color: rgb(77, 77, 77);
+}
+
+.html:after{
+  content: "HTML";
+}
+.css{
+  background-color: rgb(77, 77, 77);
+}
+
+.css:after{
+  content: "CSS";
+}
+.javascript{
+  background-color: rgb(77, 77, 77);
+}
+
+.javascript:after{
+  content: "Javascript";
+}
+
 .python{
   background-color: rgb(36,77,111);
 }
@@ -804,6 +835,24 @@ h2{
 .django:after{
   content: "Django";
 }
+
+.node{
+  background-color: rgb(10, 117, 0);
+}
+
+.node:after{
+  content: "NodeJS";
+}
+
+.react{
+  background-color: rgb(52, 154, 182);
+}
+
+.react:after{
+  content: "React";
+}
+
+
 
 .websockets{
   background-color: mediumspringgreen;
@@ -823,6 +872,12 @@ h2{
 }
 .postgresql:after{
   content: "PostgreSQL";
+}
+.graphql{
+  background-color: rgb(253, 40, 157);
+}
+.graphql:after{
+  content: "GraphQL";
 }
 
 .redis{
