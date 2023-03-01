@@ -266,8 +266,20 @@ h2{
   margin-left: 5px;
 }
 
-.navbar li:hover, .navbar .active a, .navbar li:hover > a {
+.navbar li:hover,
+.navbar .active a,
+.navbar li:hover>a {
   color: var(--primary);
+}
+
+.social-links a {
+  color: #fff;
+  transition: color .02s ease;
+}
+
+.social-links a:hover {
+  color: var(--primary);
+
 }
 
 /* NAV UNDERLINE */
