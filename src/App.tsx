@@ -1,32 +1,35 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import './App.css'
+import reactLogo from '@assets/test.png'
+import { Navbar } from '@components/Navbar/Navbar'
+import { ScrollSpy } from '@components/ScrollSpy/ScrollSpy'
+import { Element as Section } from 'react-scroll'
+import '@assets/css/style.css'
+//import '@assets/css/bootstrap.min.css'
+import '@assets/css/card.css'
+
+interface SectionProps {
+  name: string
+}
+
 
 function App() {
   const [count, setCount] = useState(0)
 
   return (
     <div className="App">
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src="/vite.svg" className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://reactjs.org" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <ScrollSpy>
+        <Navbar />
+        <Section name="hero">
+          <div className="hero" style={{ marginTop: "1000px", height: "1000px" }}>
+            Testing
+          </div>
+        </Section>
+        <Section name="projects">
+          <div className="hero" style={{ marginTop: "1000px", height: "1000px" }}>
+            Project
+          </div>
+        </Section>
+      </ScrollSpy>
     </div>
   )
 }
