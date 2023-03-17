@@ -1,21 +1,39 @@
 import React, { useState, useEffect } from "react";
 
 import { Link, Button, Element, Events, animateScroll as scroll, scrollSpy, scroller } from 'react-scroll'
-
+import { useLocation, useNavigate } from 'react-router-dom';
 interface ScrollSpyProps {
     children: React.ReactNode;
 }
 export function ScrollSpy({ children }: ScrollSpyProps): JSX.Element {
+    const location = useLocation();
+    const navigate = useNavigate();
+
+
 
     useEffect(() => {
-        console.log("scrollspy init");
         Events.scrollEvent.register('begin', function (to: string, element: HTMLElement) {
             console.log("begin", to, element);
+            navigate(`${to}`);
         });
 
         Events.scrollEvent.register('end', function (to: string, element: HTMLElement) {
             console.log("end", to, element);
+            navigate(`${to}`);
         });
+
+        // go to the current location
+        const hash = location.pathname.replace(/^\/+/, '');;
+        //remove the leading slash
+        if (hash !== '') {
+            console.log(hash);
+            scroller.scrollTo(hash, {
+                duration: 500,
+                delay: 0,
+                smooth: 'easeInOutQuart',
+                offset: -50
+            })
+        }
 
         scrollSpy.update();
 
