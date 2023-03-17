@@ -2,9 +2,12 @@ import { useState } from 'react'
 import reactLogo from '@assets/test.png'
 import { Navbar } from '@components/Navbar/Navbar'
 import { ScrollSpy } from '@components/ScrollSpy/ScrollSpy'
+
+import { Home } from '@pages/Home/Home'
+import { Projects } from '@pages/Projects/Projects'
 import { Element as Section } from 'react-scroll'
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import '@assets/css/style.css'
-//import '@assets/css/bootstrap.min.css'
 import '@assets/css/card.css'
 
 interface SectionProps {
@@ -16,21 +19,31 @@ function App() {
   const [count, setCount] = useState(0)
 
   return (
-    <div className="App">
-      <ScrollSpy>
-        <Navbar />
-        <Section name="hero">
-          <div className="hero" style={{ marginTop: "1000px", height: "1000px" }}>
-            Testing
-          </div>
-        </Section>
-        <Section name="projects">
-          <div className="hero" style={{ marginTop: "1000px", height: "1000px" }}>
-            Project
-          </div>
-        </Section>
-      </ScrollSpy>
-    </div>
+    <>
+      <Router>
+        <ScrollSpy>
+          <Navbar />
+          <main id="main">
+            <div className="main-container">
+
+              <Section name="">
+                <Home />
+              </Section>
+              <Section name="projects">
+                <Projects />
+              </Section>
+              <Section name="about">
+                <div className="hero" style={{ paddingTop: "100px", height: "1000px" }}>
+                  about
+                </div>
+              </Section>
+            </div>
+          </main>
+
+        </ScrollSpy>
+
+      </Router>
+    </>
   )
 }
 
