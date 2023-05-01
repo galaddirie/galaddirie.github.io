@@ -1,5 +1,109 @@
+/*--------------------------------------------------------------
+# Hero Section
+--------------------------------------------------------------*/
+#hero {
+    width: 100%;
+    height: 80vh;
+    overflow: hidden;
+
+}
+
+
+.hero-container {
+    position: relative;
+
+    text-align: center;
+
+    .hero-intro {
+        position: absolute !important;
+        top: 0px;
+        padding: 20px;
+        padding-left: 100px;
+
+    }
+
+}
+
+#hero h1 {
+    margin: 0;
+    font-size: 56px;
+    font-weight: 700;
+    line-height: 64px;
+    color: #fff;
+    font-family: "Poppins", sans-serif;
+}
+
+#hero h1 span {
+    color: var(--primary);
+}
+
+#hero h2 {
+    color: rgba(255, 255, 255, 0.9);
+    margin: 10px 0 0 0;
+    font-size: 24px;
+    font-weight: normal;
+    font-family: "Raleway", sans-serif;
+}
+
+
+
+
+
+@media (max-width: 768px) {
+
+    #hero h1 {
+        font-size: 23px;
+        line-height: 36px;
+    }
+
+    #hero h2 {
+        font-size: 15px;
+        line-height: 24px;
+    }
+}
+
+
+
+
+.heroVideo {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+    top: 0;
+    left: 0;
+    object-fit: cover;
+    object-position: 70%;
+}
+
+@media screen and (max-width:619px) {
+    .heroVideo {
+        object-position: 70%;
+    }
+}
+
 .video-thumbnail {
     filter: blur(20px);
     transform: scale(1.1);
     transition: visibility 0ms ease 400ms;
+}
+
+//gradient at the bottom of the video container, using a pseudo element
+.video-container {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+
+    &:after {
+        content: "";
+        position: absolute;
+        bottom: -2px;
+        left: 0;
+        width: 100%;
+        height: 20%;
+        background: linear-gradient(transparent, #030211);
+        transition: opacity 400ms ease;
+    }
 }
