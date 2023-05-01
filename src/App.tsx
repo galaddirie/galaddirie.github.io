@@ -7,9 +7,10 @@ import { Home } from '@pages/Home/Home'
 import { Projects } from '@pages/Projects/Projects'
 import { Element as Section } from 'react-scroll'
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import '@assets/css/style.css'
+//import '@assets/css/style.css'
+import './App.css'
 import '@assets/css/card.css'
-
+import "@src/index.scss";
 interface SectionProps {
   name: string
 }

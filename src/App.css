@@ -1,6 +1,79 @@
-html,
+:root {
+  --primary: rgb(255, 15, 67);
+  --primaryDARK: rgb(180, 22, 49);
+}
+
+
+
 body {
-  margin: 0;
-  padding: 0;
-  background-color: black;
+  font-family: "Open Sans", sans-serif;
+  color: #444444;
+  background: linear-gradient(#030211, #030211 100vh, black);
+}
+
+a {
+  color: var(--primary);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--primary);
+  text-decoration: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Raleway", sans-serif;
+}
+
+h3 {
+  font-weight: 700;
+  font-size: 25px;
+  font-family: "Poppins", sans-serif;
+}
+
+h2 {
+  font-weight: 700;
+  font-family: "Poppins", sans-serif;
+}
+
+
+.top-buffer {
+  margin-top: 150px;
+}
+
+.bot-buffer {
+  margin-bottom: 150px;
+}
+
+.top-buffer-lg {
+  margin-top: 300px;
+}
+
+
+.divider {
+  overflow: hidden;
+  position: relative;
+  height: 100px;
+  align-self: center;
+  width: 100%;
+  top: 30px;
+
+
+}
+
+.divider svg {
+  height: 100%;
+  width: 100%;
+}
+
+.main-container {
+  position: relative;
+  top: -150px;
+
+
 }
