@@ -1,8 +1,9 @@
 import React from "react";
+import './Projects.scss';
+import "@src/index.scss";
+import "@assets/css/bootstrap.min.css"
 
-function Card() {
 
-}
 
 export function Projects() {
     return (
