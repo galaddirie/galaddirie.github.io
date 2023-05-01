@@ -12,8 +12,10 @@ export function Navbar() {
     const navigate = useNavigate();
 
     const handleSetActive = (to: string) => {
-        console.log(to);
+
+        console.log('goto: ', to);
         navigate(`${to}`);
+
     }
     return (
         <>

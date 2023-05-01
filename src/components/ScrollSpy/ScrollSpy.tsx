@@ -5,7 +5,9 @@ import { useLocation, useNavigate } from 'react-router-dom';
 interface ScrollSpyProps {
     children: React.ReactNode;
 }
+
 export function ScrollSpy({ children }: ScrollSpyProps): JSX.Element {
+    const [scrolling, setScrolling] = useState(false);
     const location = useLocation();
     const navigate = useNavigate();
 
@@ -15,11 +17,14 @@ export function ScrollSpy({ children }: ScrollSpyProps): JSX.Element {
         Events.scrollEvent.register('begin', function (to: string, element: HTMLElement) {
             console.log("begin", to, element);
             navigate(`${to}`);
+            setScrolling(true);
+
         });
 
         Events.scrollEvent.register('end', function (to: string, element: HTMLElement) {
             console.log("end", to, element);
             navigate(`${to}`);
+
         });
 
         // go to the current location
@@ -49,7 +54,7 @@ export function ScrollSpy({ children }: ScrollSpyProps): JSX.Element {
     return (
         <>
             {React.Children.map(children, (child: any) =>
-                React.cloneElement(child),
+                React.cloneElement(child)
             )}
         </>
 
