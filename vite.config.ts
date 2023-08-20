@@ -7,6 +7,9 @@ const root = resolve(__dirname, "src");
 const pagesDir = resolve(root, "pages");
 const assetsDir = resolve(root, "assets");
 const componentsDir = resolve(root, "components");
+const typesDir = resolve(root, "types");
+const contextDir = resolve(root, "contexts");
+const hooksDir = resolve(root, "hooks");
 export default defineConfig({
   plugins: [react()],
   resolve: {
@@ -15,7 +18,9 @@ export default defineConfig({
       "@assets": assetsDir,
       "@pages": pagesDir,
       "@components": componentsDir,
-
+      "@types": typesDir,
+      "@contexts": contextDir,
+      "@hooks": hooksDir,
     },
   },
   server: {
