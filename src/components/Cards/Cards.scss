@@ -1,0 +1,80 @@
+/* CARDS */
+.card {
+    min-height: 100%;
+    background: #222;
+    border: 1px solid #dd2476;
+    color: rgba(250, 250, 250, 0.8);
+  }
+  
+  .card-hoverable {
+    transition: .2s ease;
+    z-index: 10;
+  }
+  
+  .card-img-container {
+    width: 100%;
+    height: 300px;
+    overflow: hidden;
+  }
+  
+  .card-img {
+    width: 100%;
+  }
+  
+  .card-container::after {
+    content: "";
+  
+    position: absolute;
+    top: 80px;
+    z-index: -1;
+    width: 33%;
+    height: 100%;
+    opacity: 0;
+    border-radius: 5px;
+    transform: scale(0.75);
+    -webkit-filter: blur(5vw);
+    -moz-filter: blur(5vw);
+    -ms-filter: blur(5vw);
+    filter: blur(5vw);
+    background: linear-gradient(270deg, #ff7e8b, #6d05e4);
+    background-size: 200% 200%;
+    animation: animateGlow 5s ease infinite;
+    transition: 0.3s ease-in-out;
+  }
+  
+  .card-hoverable:hover {
+    transform: translateY(-4px);
+  }
+  
+  .card-container:hover::after {
+  
+    opacity: 1;
+  }
+  
+  @keyframes animateGlow {
+    0% {
+      background-position: 0% 50%;
+    }
+  
+    50% {
+      background-position: 100% 50%;
+    }
+  
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+  
+  /* @media screen and (max-width:1199px) {
+    
+    .skills .card-container:hover::after{
+  
+      opacity: 0;
+    }
+  } */
+  @media screen and (max-width:992px) {
+    .card-container:hover::after {
+  
+      opacity: 0;
+    }
+  }
