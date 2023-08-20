@@ -1,28 +1,29 @@
 import { useState } from 'react'
 import reactLogo from '@assets/test.png'
 import { Navbar } from '@components/Navbar/Navbar'
-import { ScrollSpy } from '@components/ScrollSpy/ScrollSpy'
 
 import { Home } from '@pages/Home/Home'
 import { Projects } from '@pages/Projects/Projects'
 import { Element as Section } from 'react-scroll'
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { NavigationProvider } from '@src/contexts/NavigationContext';
+
 //import '@assets/css/style.css'
 import './App.css'
 import '@assets/css/card.css'
 import "@src/index.scss";
+import 'bootstrap-icons/font/bootstrap-icons.css';
+
 interface SectionProps {
   name: string
 }
 
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
     <>
       <Router>
-        <ScrollSpy>
+      <NavigationProvider>
           <Navbar />
           <main id="main">
             <div className="main-container">
@@ -41,8 +42,7 @@ function App() {
             </div>
           </main>
 
-        </ScrollSpy>
-
+      </NavigationProvider>
       </Router>
     </>
   )
