@@ -6,8 +6,12 @@
 #header {
     transition: all 0.5s;
     z-index: 997;
-    padding: 15px 0;
+    padding: 10px 0;
+    // position: relative;
 
+    &.sticky-navbar{
+        background-color: black !important;
+    }
     .logo {
         font-size: 32px;
         margin: 0;
@@ -19,7 +23,6 @@
 
         a {
             color: $bg-light;
-
             span {
                 color: $bg-light;
                 transition: .2s ease-in-out;
@@ -47,8 +50,10 @@
 }
 
 .navbar {
-    padding: 0;
+    padding: 0 !important;
     text-align: left;
+    position: relative;
+
 
     .logo {
         font-size: 1rem;
@@ -75,13 +80,15 @@
 
     a {
         display: flex;
-        padding-bottom: 5px;
         font-size: 15px;
         font-weight: 600;
         color: #fff;
         transition: 0.3s;
         justify-content: center;
         text-align: left;
+    &.active {
+        color: var(--primary);
+    }
 
         i {
             font-size: 12px;
@@ -171,6 +178,62 @@
 
 }
 
+
+.active-dot {
+    position: absolute;
+    // bottom: 14px; // adjust as needed
+    height: 5px;
+    width: 5px;
+    background-color: crimson; // or any desired color
+    border-radius: 50%;
+    transition: left 0.3s ease-out;
+}
+
+/* Smear to the left */
+@keyframes smearLeft {
+    0% {
+        transform: scaleX(1);
+        transform-origin: right center;
+    }
+    50% {
+        transform: scaleX(5.5); /* Adjust as needed for the smear effect's desired strength */
+        transform-origin: right center;
+        filter: blur(2px); /* Optional: blur the dot for a smoother effect */
+    }
+    100% {
+        transform: scaleX(1);
+        transform-origin: right center;
+    }
+}
+
+/* Smear to the right */
+@keyframes smearRight {
+    0% {
+        transform: scaleX(1);
+        transform-origin: left center;
+    }
+    50% {
+        transform: scaleX(5.5); /* Adjust as needed for the smear effect's desired strength */
+        transform-origin: left center;
+        filter: blur(2px); /* Optional: blur the dot for a smoother effect */
+    }
+    100% {
+        transform: scaleX(1);
+        transform-origin: left center;
+    }
+}
+
+/* Apply the animations to classes */
+.active-dot.smear-to-right {
+    animation: smearRight 0.3s ease-out forwards;
+}
+
+.active-dot.smear-to-left {
+    animation: smearLeft 0.3s ease-out forwards;
+}
+
+
+
 /**
   * Mobile Navigation 
   */
@@ -240,3 +303,33 @@
 .navbar-mobile .getstarted {
     margin: 15px;
 }
+
+/*--------------------------------------------------------------
+#  Get Started Button
+--------------------------------------------------------------*/
+.get-started-btn {
+    color: #fff;
+    border-radius: 4px;
+    padding: 7px 25px 8px 25px;
+    white-space: nowrap;
+    transition: 0.3s;
+    font-size: 14px;
+    display: inline-block;
+    border: 2px solid var(--primary);
+    background-color: black;
+  }
+  
+  .get-started-btn:hover {
+    background: var(--primary);
+    color: black;
+  }
+  
+  @media (max-width: 992px) {
+    .get-started-btn {
+      padding: 7px 20px 8px 20px;
+      margin-right: 15px;
+    }
+  }
+  
+
+
