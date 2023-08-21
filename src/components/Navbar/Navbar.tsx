@@ -1,12 +1,13 @@
 import React, { useState, useRef, useEffect } from 'react';
+import { Link } from 'react-scroll';
+import { useLocation, useNavigate } from 'react-router-dom';
+import { useNavigation } from '@src/contexts/NavigationContext';
+
 // Stylesheets: library, global, component-specific
 import "@assets/css/bootstrap.min.css";
 import "@src/index.scss";
 import "./Navbar.scss";
-import { Link } from 'react-scroll';
-import { useLocation, useNavigate } from 'react-router-dom';
-import { NavLink as RouteLink } from "react-router-dom"; // Seems unused, consider removing
-import { useNavigation } from '@src/contexts/NavigationContext';
+
 const SCROLL_THRESHOLD = 10;
 
 const NAV_ITEMS = [
@@ -15,11 +16,9 @@ const NAV_ITEMS = [
     { name: 'Skills', refName: 'skillsRef', path: 'skills' },
     { name: 'CV', refName: 'cvRef', path: 'cv' },
     { name: 'Blog', refName: 'blogRef', path: null, externalLink: 'https://blog.galad.ca/' },
-  ];
-
+];
 
 function ActiveDot({dotPosition, dotDirection, handleAnimationEnd }: any) {
-
     return (
         <div  
             className={`active-dot smear-to-${dotDirection}`} 
@@ -30,10 +29,102 @@ function ActiveDot({dotPosition, dotDirection, handleAnimationEnd }: any) {
     )
 }
 
+function ActiveDotController({ refs, activeLink }: any) {
+    const [dotPosition, setDotPosition] = useState({});
+    const [dotDirection, setDotDirection] = useState('');
+
+
+    const handleAnimationEnd = () => {
+        //setDotDirection(''); // Reset the direction so the class can be reapplied
+    }
+
+    const calculateHalfOfElement = (element: HTMLElement | null): string => {
+        if (!element || !refs.navRef.current) return '0%';
+        
+        const navRect = refs.navRef.current.getBoundingClientRect();
+        const rect = element.getBoundingClientRect();
+        
+        return `${(rect.left + rect.width / 2 - navRect.left) / navRect.width * 100}%`;
+    }
+
+    const getActivePosition = (to: string): string => {
+        const foundNavItem = NAV_ITEMS.find(item => item.path === to);
+        const refName = foundNavItem?.refName;
+        
+        return refName ? calculateHalfOfElement(refs[refName]?.current) : '0%';
+    }
+
+    const computeDotPosition = (activeLink: string) => {
+        const navRect = refs.navRef.current?.getBoundingClientRect();
+
+        if (!navRect) return;
+        
+        const logoTop = refs.logoRef.current?.getBoundingClientRect().top ?? 0;
+        const top = logoTop + navRect.top;
+
+        let leftPosition = '0%';
+        let topPosition = `${top + 5}px`;
+        
+        if (activeLink !== '') {
+            leftPosition = getActivePosition(activeLink);
+            topPosition = `${top + 10}px`;
+        } else if (refs.logoRef.current) {
+            leftPosition = `${refs.logoRef.current.getBoundingClientRect().left - navRect.left}px`;
+        }
+
+        setDotPosition({ left: leftPosition, top: topPosition });
+
+        // if dotposition.left is does not exist, set it such that dot direction is right
+        
+        const newDirection = parseFloat(leftPosition) > parseFloat(dotPosition.left) ? 'right' : 'left';
+        if (newDirection === dotDirection) {
+            setDotDirection('');
+            setTimeout(() => setDotDirection(newDirection), 10);
+        } else {
+            setDotDirection(newDirection);
+        }
+    }
+
+    useEffect(() => {
+        computeDotPosition(activeLink);
+    }, [activeLink]);
+
+    return (
+        <ActiveDot dotPosition={dotPosition} dotDirection={dotDirection} handleAnimationEnd={handleAnimationEnd} />
+    )
+}  
+
+
+function NavItem ({ item, refs, handleSetActive, onNavClick }: any) {
+    return (
+        <li key={item.name} ref={refs[item.refName]}>
+            {item.path ? (
+            <Link
+            className="nav-item item-underline-container"
+            to={item.path}
+            spy={true}
+            smooth={true}
+            duration={500}
+            onSetActive={handleSetActive}
+            onClick={onNavClick}
+            delay={0}
+            activeClass="active"
+            >
+            {item.name}
+            {/* <div className="item-hover-underline"></div> */}
+            </Link>
+            ) : (
+            <a className="nav-item item-underline-container" href={item.externalLink} target="_blank" rel="noopener noreferrer">
+                {item.name}
+                <div className="item-hover-underline"></div>
+            </a>
+            )}
+        </li>
+    )
+}
+
 export function Navbar() {
     const [scrolled, setScrolled] = useState(false);
-    const [dotPosition, setDotPosition] = useState({ });
-    const [dotDirection, setDotDirection] = useState('');
     const [resetDotAnimation, setResetDotAnimation] = useState(0);
     const [activeLink, setActiveLink] = useState('');
     const [isMobileNavOpen, setIsMobileNavOpen] = useState(false);
@@ -58,64 +149,8 @@ export function Navbar() {
         setPreventNavUpdate(true);
         navigate(`${to}`);
         setActiveLink(to);
-        computeDotPosition(to);
-    }
-    
-    const calculateHalfOfElement = (element: HTMLElement | null) => {
-    if (element && refs.navRef.current) {
-        const navRect = refs.navRef.current.getBoundingClientRect();
-        const rect = element.getBoundingClientRect();
-        return `${(rect.left + rect.width / 2 - navRect.left) / navRect.width * 100}%`;
-    }
-    return '0%';
     }
 
-    const getActivePosition = (to: string) => NAV_ITEMS.find(item => item.path === to)?.refName
-    ? calculateHalfOfElement(refs[NAV_ITEMS.find(item => item.path === to)?.refName].current)
-    : '0%';
-    
-    const handleAnimationEnd = () => {
-        setDotDirection(''); // Reset the direction so the class can be reapplied
-    };
-  
-    const computeDotPosition = (activeLink: string) => {
-        const navRect = refs.navRef.current?.getBoundingClientRect();
-            
-        let leftPosition;
-        let topPosition;
-
-        if ( !navRect ) {return; }
-        const top = refs.logoRef.current
-            ? refs.logoRef.current.getBoundingClientRect().top + navRect?.top
-            : 0
-        if (activeLink === '') {
-            leftPosition = refs.logoRef.current 
-                ? `${refs.logoRef.current.getBoundingClientRect().left - navRect?.left}px`
-                : '0%';
-            topPosition = top + 5 + 'px';
-        } else {
-            leftPosition = getActivePosition(activeLink);
-            topPosition = top + 10 + 'px';
-
-        }
-        
-        
-        
-        setDotPosition({ left: leftPosition, top: topPosition });
-        
-        let newDirection = parseFloat(leftPosition) > parseFloat(dotPosition.left) ? 'right' : 'left';
-        if (newDirection === dotDirection) {
-            // Remove the animation class
-            setDotDirection('');
-            // Wait a moment, then reapply the animation class
-            setTimeout(() => {
-                setDotDirection(newDirection);
-            }, 10);
-        } else {
-            setDotDirection(newDirection);
-        }
-    };
-    
     const toggleMobileNav = () => {
         setIsMobileNavOpen(!isMobileNavOpen);
     };
@@ -139,7 +174,7 @@ export function Navbar() {
     useEffect(() => {
         //check if mobile, update on resize
         const onResize = () => {
-            setIsMobile(window.innerWidth < 992);
+            setIsMobile(window.innerWidth <= 992);
         };
         window.addEventListener('resize', onResize);
         onResize();
@@ -182,33 +217,11 @@ export function Navbar() {
                             </li>
                         )}
                         {NAV_ITEMS.map(item => (
-                        <li key={item.name} ref={refs[item.refName]}>
-                            {item.path ? (
-                            <Link
-                            className="nav-item item-underline-container"
-                            to={item.path}
-                            spy={true}
-                            smooth={true}
-                            duration={500}
-                            onSetActive={handleSetActive}
-                            onClick={onNavClick}
-                            delay={0}
-                            activeClass="active"
-                            >
-                            {item.name}
-                            {/* <div className="item-hover-underline"></div> */}
-                            </Link>
-                            ) : (
-                            <a className="nav-item item-underline-container" href={item.externalLink} target="_blank" rel="noopener noreferrer">
-                                {item.name}
-                                <div className="item-hover-underline"></div>
-                            </a>
-                            )}
-                        </li>
+                            <NavItem item={item} refs={refs} handleSetActive={handleSetActive} onNavClick={onNavClick} />
                         ))}
                     </ul>
-                    { !isMobile && (
-                    <ActiveDot dotPosition={dotPosition} dotDirection={dotDirection} handleAnimationEnd={handleAnimationEnd} />
+                    { (!isMobile && !isMobileNavOpen) && (
+                        <ActiveDotController refs={refs} activeLink={activeLink} />
                     )}
                     <i 
                         className={`bi ${isMobileNavOpen ? 'bi-x' : 'bi-list'} mobile-nav-toggle`} 
