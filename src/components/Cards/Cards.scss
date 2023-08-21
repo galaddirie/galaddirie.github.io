@@ -78,3 +78,156 @@
       opacity: 0;
     }
   }
+
+
+/*--------------------------------------------------------------
+# Skills
+----------------------------------------------------------------*/
+.skills {
+  background: linear-gradient(#030211 5%, #000000);
+
+}
+
+/*--------------------------------------------------------------
+# Skill Icons
+----------------------------------------------------------------*/
+
+.skill-icon {
+  display: inline-flex;
+  padding: 3px;
+  font-size: .9em;
+  color: rgb(255, 255, 255);
+  border-radius: 3px;
+  margin: 0 3px 10px 0;
+  background-color: rgb(83, 83, 83);
+}
+
+.html {
+  background-color: rgb(77, 77, 77);
+}
+
+.html:after {
+  content: "HTML";
+}
+
+.css {
+  background-color: rgb(77, 77, 77);
+}
+
+.css:after {
+  content: "CSS";
+}
+
+.javascript {
+  background-color: rgb(77, 77, 77);
+}
+
+.javascript:after {
+  content: "Javascript";
+}
+
+.python {
+  background-color: rgb(36, 77, 111);
+}
+
+.python:after {
+  content: "Python";
+}
+
+.django {
+  background-color: rgb(15, 112, 88);
+}
+
+.django:after {
+  content: "Django";
+}
+
+.node {
+  background-color: rgb(10, 117, 0);
+}
+
+.node:after {
+  content: "NodeJS";
+}
+
+.react {
+  background-color: rgb(52, 154, 182);
+}
+
+.react:after {
+  content: "React";
+}
+
+
+
+.websockets {
+  background-color: mediumspringgreen;
+}
+
+.websockets:after {
+  content: "WebSocket";
+}
+
+.ajax {
+  background-color: rgb(2, 143, 224);
+}
+
+.ajax:after {
+  content: "Ajax";
+}
+
+.postgresql {
+  background-color: rgb(103, 40, 185);
+}
+
+.postgresql:after {
+  content: "PostgreSQL";
+}
+
+.graphql {
+  background-color: rgb(253, 40, 157);
+}
+
+.graphql:after {
+  content: "GraphQL";
+}
+
+.redis {
+  background-color: rgb(173, 18, 65);
+}
+
+.redis:after {
+  content: "Redis";
+}
+
+.aws {
+  background-color: rgb(223, 89, 0);
+}
+
+.aws:after {
+  content: "AWS";
+}
+
+.docker {
+  background-color: #002d68;
+}
+
+.docker:after {
+  content: "Docker";
+}
+
+.k8 {
+  background-color: #316CE6;
+}
+
+.k8:after {
+  content: "Kubernetes";
+}
+
+.typescript {
+  background-color: #007ACC;
+}
+
+.typescript:after {
+  content: "Typescript";
+}
