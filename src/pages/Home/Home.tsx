@@ -24,11 +24,11 @@ export function Home() {
             <div className="hero-container" style={{ height: '100vh' }}>
                 <div className="video-container">
                     <img src="src/assets/img/hero.jpg" alt="hero" className="heroVideo video-thumbnail" style={setThumbnailStye()} />
-                    <LazyLoadComponent>
+                    {/* <LazyLoadComponent> */}
                     <video autoPlay muted loop className="heroVideo" onLoadedData={onLoadedData}>
                         <source src="src/assets/video/video_compressed.webm" type="video/webm" />
                     </video>
-                    </LazyLoadComponent>
+                    {/* </LazyLoadComponent> */}
 
 
                 </div>
@@ -56,7 +56,7 @@ export function Home() {
                                 galad.work@gmail.com</p>
                             <div style={{ width: "100%" }}>
                                 <Link to="projects" spy={true} smooth={true} offset={20} duration={500}>
-                                    <button className="btn btn-outline-danger text-light">
+                                    <button className="btn btn-outline-danger  get-started-btn" >
                                         See Projects <i className="bi bi-arrow-down-circle-fill"></i>
                                     </button>
                                 </Link>

@@ -1,7 +1,7 @@
 [
     {
         "title": "Chess",
-        "image": "src/assets/img/projects/chess.png",
+        "image": "src/assets/img/projects/chess2.png",
         "description": [
             "Developed a real-time multiplayer chess game web application leveraging websockets.",
             "Implemented sessions to temporarily create a profile through local storage for anonymous users, to grant persistent access to live games and to ensure only valid players can participate",
@@ -59,8 +59,8 @@
         ]
     },
     {
-        "title": "Pathfinder viz",
-        "image": "src/assets/img/projects/pathfinder.png",
+        "title": "Pathfinder Vizualizer",
+        "image": "src/assets/img/projects/pathfinder2.png",
         "description": [
             "Created an interactive application that allows users to visualize Pathfinding algorithms, generate mazes, and draw obstacles",
             "The pathfinding algorithms are hosted server-side, the client can make requests using ajax for the shortest path and the board is converted into a graph",
@@ -75,8 +75,7 @@
         ],
         "github": [
             {
-                "url": "https://github.com/galaddirie/pathfinder_app",
-                "name": "Pathfinder Repo"
+                "url": "https://github.com/galaddirie/pathfinder_app"
             }
         ],
         "demo": [
@@ -130,7 +129,7 @@
     },
     {
         "title": "This Website",
-        "image": "src/assets/img/projects/portfolio.png",
+        "image": "src/assets/img/projects/portfolio2.png",
         "description": [
             "You are here!",
             "Created to showcase my personal projects."

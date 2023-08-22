@@ -75,7 +75,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
 
                     <div className="card-buttons d-flex justify-content-end">
                         {project.github.map((source, index) => (
-                            <a key={index} href={source.url} className="btn btn-black" target="_blank" rel="noopener noreferrer">
+                            <a key={index} href={source.url} className="btn btn-black me-2"  target="_blank" rel="noopener noreferrer">
                                 <i className="bi bi-github"></i> {source.name ? source.name : 'Github'}
                             </a>
                         ))}
