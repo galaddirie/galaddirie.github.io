@@ -4,8 +4,9 @@
   background-color: #00000000;
   border: 1px solid #2b2b2b;
   transition: all .3s ease-in-out;
+  box-shadow: 0 0px 20px 0 rgb(36, 36, 36);
   &:hover {
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 50px 0 rgb(77, 77, 77);
     border: 1px solid #00000000;
     cursor: pointer;
 
@@ -72,6 +73,14 @@
 .card:hover .card-img {
   //rotate and scale the image on hover
   transform: scale(1.3) rotate(3deg)
+}
+
+.bright-background .card-title h3 {
+  color: black; // Change as per your design needs
+}
+
+.dark-background .card-title h3 {
+  color: white; // Change as per your design needs
 }
 
 /*--------------------------------------------------------------
