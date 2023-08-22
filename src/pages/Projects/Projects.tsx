@@ -13,11 +13,12 @@ export function Projects() {
         <section id="projects-container" className="projects text-light" style={{ paddingTop: "150px", paddingBottom: "150px" }}>
             <div id="projects" className="container">
                 <h2>PROJECTS</h2>
-            </div>
-            <div className="container">
-                {projectsData.map((project: Project, index: number) => (
-                    <ProjectCard key={index} project={project} />
-                ))}
+            
+                <div className=" row">
+                    {projectsData.map((project: Project, index: number) => (
+                        <ProjectCard key={index} project={project} />
+                    ))}
+                </div>
             </div>
         </section>
 

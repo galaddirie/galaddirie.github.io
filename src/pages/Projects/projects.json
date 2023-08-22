@@ -1,7 +1,7 @@
 [
     {
         "title": "Chess",
-        "image": "src/src/assets/img/projects/chess.png",
+        "image": "src/assets/img/projects/chess.png",
         "description": [
             "Developed a real-time multiplayer chess game web application leveraging websockets.",
             "Implemented sessions to temporarily create a profile through local storage for anonymous users, to grant persistent access to live games and to ensure only valid players can participate",
@@ -18,20 +18,18 @@
         ],
         "github": [
             {
-                "url": "https://github.com/galaddirie/chess",
-                "name": "Chess Repo"
+                "url": "https://github.com/galaddirie/chess"
             }
         ],
         "demo": [
             {
-                "url": "https://chess-stream.herokuapp.com/",
-                "name": "Live Chess Demo"
+                "url": "https://chess-stream.herokuapp.com/"
             }
         ]
     },
     {
         "title": "Blog",
-        "image": "src/assets/img/projects/blog.png",
+        "image": "src/assets/img/projects/blog1.png",
         "description": [
             "Created a blog to specifically discuss Non-Photorealistic Rendering in the Blender 3D space.",
             "Leveraged Strapi as a headless CMS running on Heroku, delivering content to frontend via an API.",
@@ -47,17 +45,16 @@
         "github": [
             {
                 "url": "https://github.com/galaddirie/blog-frontend",
-                "name": "Blog Frontend Repo"
+                "name": "Frontend"
             },
             {
                 "url": "https://github.com/galaddirie/blog-backend",
-                "name": "Blog Backend Repo"
+                "name": "Backend"
             }
         ],
         "demo": [
             {
-                "url": "https://blog.galad.ca/",
-                "name": "Live Blog Demo"
+                "url": "https://blog.galad.ca/"
             }
         ]
     },
@@ -84,14 +81,13 @@
         ],
         "demo": [
             {
-                "url": "https://algodraw.herokuapp.com/",
-                "name": "Live Pathfinder Demo"
+                "url": "https://algodraw.herokuapp.com/"
             }
         ]
     },
     {
         "title": "Riot Games Application",
-        "image": "src/assets/img/projects/jgdiff.png",
+        "image": "src/assets/img/projects/jg_diff.png",
         "description": [
             "Developed a League of Legends player search engine, using Riot Games External API",
             "Leveraged caches using Redis for recently accessed data from the API for reduced calls to the API and faster response times.",
@@ -106,20 +102,18 @@
         ],
         "github": [
             {
-                "url": "https://github.com/galaddirie/jg_diff",
-                "name": "Riot Games Repo"
+                "url": "https://github.com/galaddirie/jg_diff"
             }
         ],
         "demo": [
             {
-                "url": "https://jg-diff.herokuapp.com/",
-                "name": "Live Riot Games Demo"
+                "url": "https://jg-diff.herokuapp.com/"
             }
         ]
     },
     {
         "title": "NYC Arrest Data Analysis",
-        "image": "",
+        "image": "src/assets/img/projects/nyc_data_image.png",
         "description": [
             "Parsed and graphed New York's historic arrest dataset from 2006-2019, utilizing python.",
             "Analyzed data to identify biases and why minorities are disproportionately arrested more. Looking Specifically at the NYPDs controversial Stop and Frisk policy"
@@ -129,8 +123,7 @@
         ],
         "github": [
             {
-                "url": "https://github.com/galaddirie/nyc_arrest_data",
-                "name": "NYC Arrest Data Repo"
+                "url": "https://github.com/galaddirie/nyc_arrest_data"
             }
         ],
         "demo": []
@@ -149,8 +142,7 @@
         ],
         "github": [
             {
-                "url": "https://github.com/galaddirie/galaddirie.github.io",
-                "name": "Portfolio Repo"
+                "url": "https://github.com/galaddirie/galaddirie.github.io"
             }
         ],
         "demo": []

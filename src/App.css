@@ -8,7 +8,7 @@
 body {
   font-family: "Open Sans", sans-serif;
   color: #444444;
-  background: linear-gradient(#030211, #030211 100vh, black);
+  background: linear-gradient(#030211 100vh, #000000 130vh, black);
 }
 
 a {

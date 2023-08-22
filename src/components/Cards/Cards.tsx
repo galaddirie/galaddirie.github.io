@@ -14,10 +14,10 @@ interface ProjectCardProps {
 
 const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
     return (
-        <div className="col-lg-4 col-12  my-2 card-container">
+        <div className="col-lg-6 col-12  my-2 card-container">
             <div className="card-hoverable card">
                 <div className="card-img-container">
-                    <img src={project.image} className="card-img" alt={project.title} />
+                    <div className="card-img"  style={{ backgroundImage: `url(${project.image})` }} />
                 </div>
 
                 <div className="card-body d-flex flex-column justify-content-between">
@@ -30,16 +30,16 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
                                 <div key={tech} className={`${tech} skill-icon`}></div>
                             ))}
                         </div>
-                        <div className="card-text pt-2 border-top">
+                        {/* <div className="card-text pt-2 border-top">
                             <ul>
                                 {project.description.map((desc, index) => (
                                     <li key={index}>{desc}</li>
                                 ))}
                             </ul>
-                        </div>
+                        </div> */}
                     </div>
 
-                    <div>
+                    <div className="card-buttons d-flex justify-content-end">
                         {project.github.map((source, index) => (
                             <a key={index} href={source.url} className="btn btn-black" target="_blank" rel="noopener noreferrer">
                                 <i className="bi bi-github"></i> {source.name ? source.name : 'Github'}
@@ -47,7 +47,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
                         ))}
                         {project.demo.map((source, index) => (
                         <a key={index} href={source.url} className="btn btn-danger" target="_blank" rel="noopener noreferrer">
-                            <i className="bi bi-link-45deg"></i> {source.name ? source.name : 'Demo'}
+                            <i className="bi bi-link-45deg"></i> {source.name ? source.name : 'Live'}
                         </a>
                         ))}
                     </div>
