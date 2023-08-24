@@ -1,10 +1,10 @@
-import blogImg from '@assets/img/projects/blog.png
-import chessImg from '@assets/img/projects/chess.png';
+import blogImg from '@assets/img/projects/blog-img.png';
+import chessImg from '@assets/img/projects/chess-img.png';
 
-import pathfinderImg from '@assets/img/projects/pathfinder.png';
-import jgDiffImg from '@assets/img/projects/jg_diff.png';
-import portfolioImg from '@assets/img/projects/portfolio.png';
-import nycDataImg from '@assets/img/projects/nyc_data_image.png';
+import pathfinderImg from '@assets/img/projects/pathfinder-img.png';
+import jgDiffImg from '@assets/img/projects/jg_diff-img.png';
+import portfolioImg from '@assets/img/projects/portfolio-img.png';
+import nycDataImg from '@assets/img/projects/nyc_data_image-img.png';
 
 const ProjectList = 
 [
