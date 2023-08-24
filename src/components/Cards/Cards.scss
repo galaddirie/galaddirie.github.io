@@ -1,0 +1,305 @@
+/* CARDS */
+@property --rotate {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+@keyframes spinGradient {
+  0% {
+    --rotate: 0deg;
+  }
+  100% {
+    --rotate: 360deg;
+  }
+}
+
+#projects-container{
+  .card {
+    position: relative;
+    background-color: #00000000;
+    border: 1px solid #2b2b2b;
+    transition: all .3s ease-in-out;
+    box-shadow: 0 0px 20px 0 rgb(36, 36, 36);
+    height: 250px;
+    &:hover {
+      // box-shadow: 0 10px 30px 0px rgba(216, 216, 216, 0.808);
+      border: 1px solid #00000000;
+      cursor: pointer;
+    }
+
+    // Card rotating outline
+
+    &::before{
+      content: "";
+      position: absolute;
+      width: calc(100% + 5px);
+      height: calc(100% + 5px);
+      top: -2.5px;
+      left: -2.5px;
+      border-radius: .25rem;
+      background-image: linear-gradient(
+        var(--rotate)
+        , #000000, rgb(100, 76, 100) 43%, #000000);
+      
+      animation: spinGradient 10s linear infinite;
+      transition: all 1s ease-in-out;
+      z-index: -10;
+    }
+    
+    &:hover::before {
+      background-image: linear-gradient(var(--rotate), #000000, rgb(255, 233, 233)43%, #000000);
+    }
+
+
+    
+  }
+
+  // Card rotating background gradient
+  .card-container{
+    position: relative;
+
+    &::after{
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: -10;
+      opacity: 0;
+      filter: blur(1px);
+      height: calc(100% + 5px);
+      width: calc(100% + 5px);
+      transform: scale(.95);
+      transition: all .2s ease-in-out;
+      transition: filter 2s ease-in-out;
+      animation: spinGradient 10s linear infinite;
+    }
+
+    &:hover::after {
+      filter: blur(20px);
+      background-image: linear-gradient(var(--rotate), #000000, rgb(255, 130, 172)43%, #000000);
+      opacity: 1;
+    }
+
+    
+    
+    
+  }
+
+
+  .card{
+    .card-img {
+      display: block;        /* Makes sure the image takes the full width of its container */
+      width: 100%;
+      height: 100%;          /* Keeps the image aspect ratio */
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      transition: transform 0.3s ease-in-out;  /* Only animate transform property for performance */
+    }
+    .card-img-container {
+      position: absolute;
+      overflow: hidden;
+      border-radius: 0.25rem;
+      z-index: -1;
+      width: 100%;
+      height: 100%; /* Adjust height to maintain the image's aspect ratio. */
+    }
+
+
+    &:hover .card-img {
+      //rotate and scale the image on hover
+      transform: scale(1.3) rotate(3deg)
+    }
+
+    .card-title h3{
+      text-shadow: 0 0px 10px rgba(0, 0, 0, 0.13);
+    }
+    
+  }
+}
+
+.bright-background .card-title h3 {
+  color: rgb(21, 16, 24); // Change as per your design needs
+}
+
+.dark-background .card-title h3 {
+  color: white; // Change as per your design needs
+}
+
+.skill-cards {
+
+  .card {
+    background: #202020;
+    border-radius: 5px;
+    padding: 20px;
+    height: 100%;
+  }
+  
+  .card-image{
+    width: 50px;
+    height: 50px;
+    border-radius: 5px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+
+  .card-title {
+    font-weight: 600;
+    font-size: 24px;
+  }
+  
+  .card-info {
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 21px;
+  }
+}
+
+/*--------------------------------------------------------------
+# Skill Icons
+----------------------------------------------------------------*/
+
+.skill-icon {
+  display: inline-flex;
+  padding: 3px;
+  font-size: .9em;
+  color: rgb(255, 255, 255);
+  border-radius: 3px;
+  margin: 0 3px 10px 0;
+  background-color: rgb(83, 83, 83);
+}
+
+.html {
+  background-color: rgb(77, 77, 77);
+}
+
+.html:after {
+  content: "HTML";
+}
+
+.css {
+  background-color: rgb(77, 77, 77);
+}
+
+.css:after {
+  content: "CSS";
+}
+
+.javascript {
+  background-color: rgb(77, 77, 77);
+}
+
+.javascript:after {
+  content: "Javascript";
+}
+
+.python {
+  background-color: rgb(36, 77, 111);
+}
+
+.python:after {
+  content: "Python";
+}
+
+.django {
+  background-color: rgb(15, 112, 88);
+}
+
+.django:after {
+  content: "Django";
+}
+
+.node {
+  background-color: rgb(10, 117, 0);
+}
+
+.node:after {
+  content: "NodeJS";
+}
+
+.react {
+  background-color: rgb(52, 154, 182);
+}
+
+.react:after {
+  content: "React";
+}
+
+
+
+.websockets {
+  background-color: mediumspringgreen;
+}
+
+.websockets:after {
+  content: "WebSocket";
+}
+
+.ajax {
+  background-color: rgb(2, 143, 224);
+}
+
+.ajax:after {
+  content: "Ajax";
+}
+
+.postgresql {
+  background-color: rgb(103, 40, 185);
+}
+
+.postgresql:after {
+  content: "PostgreSQL";
+}
+
+.graphql {
+  background-color: rgb(253, 40, 157);
+}
+
+.graphql:after {
+  content: "GraphQL";
+}
+
+.redis {
+  background-color: rgb(173, 18, 65);
+}
+
+.redis:after {
+  content: "Redis";
+}
+
+.aws {
+  background-color: rgb(223, 89, 0);
+}
+
+.aws:after {
+  content: "AWS";
+}
+
+.docker {
+  background-color: #002d68;
+}
+
+.docker:after {
+  content: "Docker";
+}
+
+.k8 {
+  background-color: #316CE6;
+}
+
+.k8:after {
+  content: "Kubernetes";
+}
+
+.typescript {
+  background-color: #007ACC;
+}
+
+.typescript:after {
+  content: "Typescript";
+}
+
+
+

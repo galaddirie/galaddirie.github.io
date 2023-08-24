@@ -1,0 +1,335 @@
+@import '@src/index';
+
+/*--------------------------------------------------------------
+# Header
+--------------------------------------------------------------*/
+#header {
+    transition: all 0.5s;
+    z-index: 997;
+    padding: 10px 0;
+    // position: relative;
+
+    &.sticky-navbar{
+        background-color: black !important;
+    }
+    .logo {
+        font-size: 32px;
+        margin: 0;
+        padding: 0;
+        line-height: 1;
+        font-weight: 700;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+
+        a {
+            color: $bg-light;
+            span {
+                color: $bg-light;
+                transition: .2s ease-in-out;
+            }
+
+            &.active span {
+                color: $primary;
+                transition: .2s ease-in-out;
+            }
+
+
+        }
+    }
+}
+
+
+/*--------------------------------------------------------------
+# Navigation Menu
+--------------------------------------------------------------*/
+/**
+* Desktop Navigation 
+*/
+.nav-item {
+    cursor: pointer
+}
+
+.navbar {
+    padding: 0 !important;
+    text-align: left;
+    position: relative;
+
+
+    .logo {
+        font-size: 1rem;
+    }
+
+    ul {
+        margin: 0;
+        padding: 0;
+        display: flex;
+        list-style: none;
+        align-items: center;
+    }
+
+    li {
+        display: flex;
+        margin-right: 15px;
+        padding-left: 10px;
+        padding-right: 10px;
+        height: 50px;
+        align-items: center;
+        justify-content: center;
+
+    }
+
+    a {
+        display: flex;
+        font-size: 15px;
+        font-weight: 600;
+        color: #fff;
+        transition: 0.3s;
+        justify-content: center;
+        text-align: left;
+    &.active {
+        color: var(--primary);
+    }
+
+        i {
+            font-size: 12px;
+            line-height: 0;
+            margin-left: 5px;
+        }
+    }
+}
+
+
+.navbar li:hover,
+.navbar .active a,
+.navbar li:hover>a {
+    color: var(--primary);
+}
+
+.social-links a {
+    color: #fff;
+    transition: color .02s ease;
+}
+
+.social-links a:hover {
+    color: var(--primary);
+
+}
+
+/* NAV UNDERLINE */
+
+.item-underline-container {
+    display: flex;
+    flex-direction: column;
+
+}
+
+.item-hover-underline {
+    opacity: 0;
+    background-color: var(--primary);
+    height: 2px;
+    transition: .2s ease-in-out;
+    width: 0%;
+    border-radius: 15px;
+
+
+}
+
+.active .item-hover-underline {
+    opacity: 1;
+    width: 30%;
+    background-color: var(--primary);
+
+}
+
+.item-underline-container:hover .item-hover-underline {
+    opacity: 1;
+    width: 85%;
+    background-color: var(--primary);
+
+}
+
+@media (max-width: 991px) {
+    .custom-nav-background {
+        background-color: rgb(34, 34, 34);
+    }
+
+    .navbar-collapse .nav-item {
+        border-bottom: 1px solid rgba(41, 41, 41, 0.479);
+
+    }
+
+    .active>.item-hover-underline {
+        width: 0%;
+
+
+    }
+
+    .item-underline-container:hover .item-hover-underline {
+        width: 0%;
+
+    }
+
+    .active:hover .item-hover-underline {
+        width: 0%;
+
+    }
+
+
+
+}
+
+
+.active-dot {
+    position: absolute;
+    // bottom: 14px; // adjust as needed
+    height: 5px;
+    width: 5px;
+    background-color: crimson; // or any desired color
+    border-radius: 50%;
+    transition: left 0.3s ease-out;
+}
+
+/* Smear to the left */
+@keyframes smearLeft {
+    0% {
+        transform: scaleX(1);
+        transform-origin: right center;
+    }
+    50% {
+        transform: scaleX(5.5); /* Adjust as needed for the smear effect's desired strength */
+        transform-origin: right center;
+        filter: blur(2px); /* Optional: blur the dot for a smoother effect */
+    }
+    100% {
+        transform: scaleX(1);
+        transform-origin: right center;
+    }
+}
+
+/* Smear to the right */
+@keyframes smearRight {
+    0% {
+        transform: scaleX(1);
+        transform-origin: left center;
+    }
+    50% {
+        transform: scaleX(5.5); /* Adjust as needed for the smear effect's desired strength */
+        transform-origin: left center;
+        filter: blur(2px); /* Optional: blur the dot for a smoother effect */
+    }
+    100% {
+        transform: scaleX(1);
+        transform-origin: left center;
+    }
+}
+
+/* Apply the animations to classes */
+.active-dot.smear-to-right {
+    animation: smearRight 0.3s ease-out forwards;
+}
+
+.active-dot.smear-to-left {
+    animation: smearLeft 0.3s ease-out forwards;
+}
+
+
+
+/**
+  * Mobile Navigation 
+  */
+.mobile-nav-toggle {
+    color: #fff;
+    font-size: 28px;
+    cursor: pointer;
+    display: none;
+    line-height: 0;
+    transition: 0.5s;
+}
+
+@media (max-width: 991px) {
+    .mobile-nav-toggle {
+        display: block;
+    }
+
+    .navbar ul {
+        display: none;
+    }
+}
+
+.navbar-mobile {
+    position: fixed;
+    overflow: hidden;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background: rgb(0, 0, 0);
+    transition: 0.3s;
+    z-index: 999;
+}
+
+.navbar-mobile .mobile-nav-toggle {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+}
+
+.navbar-mobile ul {
+    display: block;
+    position: absolute;
+    top: 55px;
+    right: 15px;
+    bottom: 15px;
+    left: 15px;
+    padding: 10px 0;
+    background-color: #fff;
+    overflow-y: auto;
+    transition: 0.3s;
+}
+
+.navbar-mobile a {
+    padding: 10px 20px;
+    font-size: 15px;
+    color: #151515;
+}
+
+.navbar-mobile a:hover,
+.navbar-mobile .active a,
+.navbar-mobile li:hover>a {
+    color: #151515;
+    background-color: var(--primary);
+}
+
+.navbar-mobile .getstarted {
+    margin: 15px;
+}
+
+/*--------------------------------------------------------------
+#  Get Started Button
+--------------------------------------------------------------*/
+.get-started-btn {
+    color: #fff;
+    border-radius: 4px;
+    padding: 7px 25px 8px 25px;
+    white-space: nowrap;
+    transition: 0.3s;
+    font-size: 14px;
+    display: inline-block;
+    border: 2px solid var(--primary);
+    background-color: black;
+  }
+  
+  .get-started-btn:hover {
+    background: var(--primary);
+    color: black;
+  }
+  
+  @media (max-width: 992px) {
+    .get-started-btn {
+      padding: 7px 20px 8px 20px;
+      margin-right: 15px;
+    }
+  }
+  
+
+
