@@ -27,8 +27,17 @@ export default defineConfig({
     watch: {
       usePolling: true,
     },
-    host: true, // needed for the Docker Container port mapping to work
+    host: true,
     strictPort: true,
     port: 3000,
+  },
+  build: {
+    outDir: "build",
+    emptyOutDir: true,
+    rollupOptions: {
+      input: {
+        main: path.resolve(__dirname, "index.html"),
+      },
+    },
   },
 })

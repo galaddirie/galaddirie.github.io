@@ -1,13 +1,17 @@
-import { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import reactLogo from '@assets/test.png'
 import { Navbar } from '@components/Navbar/Navbar'
 
 import { Home } from '@pages/Home/Home'
 import { Projects } from '@pages/Projects/Projects'
+import { About } from '@pages/About/About'
+import { Skills } from '@pages/Skills/Skills'
+import { CV } from '@pages/CV/CV'
+import { Footer } from '@components/Footer/Footer'
 import { Element as Section } from 'react-scroll'
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { NavigationProvider } from '@src/contexts/NavigationContext';
-
+import lozad from 'lozad'
 //import '@assets/css/style.css'
 import './App.css'
 import '@assets/css/card.css'
@@ -20,6 +24,13 @@ interface SectionProps {
 
 
 function App() {
+  
+  useEffect(() => {
+    const observer = lozad();
+    observer.observe();
+  }, []);
+
+
   return (
     <>
       <Router>
@@ -33,14 +44,19 @@ function App() {
               </Section>
               <Section name="projects">
                 <Projects />
+              </Section>   
+              {/* <Section name="about">
+                <About />
+              </Section> */}
+              <Section name="skills">
+                <Skills />
               </Section>
-              <Section name="about">
-                <div className="hero" style={{ paddingTop: "100px", height: "1000px" }}>
-                  about
-                </div>
+              <Section name="cv">
+                <CV />
               </Section>
             </div>
           </main>
+          <Footer />
 
       </NavigationProvider>
       </Router>

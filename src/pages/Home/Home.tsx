@@ -5,6 +5,8 @@ import "./Home.scss";
 import "@src/index.scss";
 import "@assets/css/bootstrap.min.css"
 
+import HeroVideo from "@src/assets/video/video_compressed.webm";
+import HeroImage from "@src/assets/img/hero.jpg";
 
 export function Home() {
     // while video is loading, show the image
@@ -23,14 +25,10 @@ export function Home() {
         <section id="hero">
             <div className="hero-container" style={{ height: '100vh' }}>
                 <div className="video-container">
-                    <img src="src/assets/img/hero.jpg" alt="hero" className="heroVideo video-thumbnail" style={setThumbnailStye()} />
-                    {/* <LazyLoadComponent> */}
-                    <video autoPlay muted loop className="heroVideo" onLoadedData={onLoadedData}>
-                        <source src="src/assets/video/video_compressed.webm" type="video/webm" />
+                    <img src={HeroImage} alt="hero" className="lozad heroVideo video-thumbnail" style={setThumbnailStye()} />
+                    <video autoPlay muted loop playsInline className="lozad heroVideo" onLoadedData={onLoadedData} poster={HeroImage}>
+                        <source src={HeroVideo}type="video/webm" />
                     </video>
-                    {/* </LazyLoadComponent> */}
-
-
                 </div>
 
 
@@ -55,7 +53,7 @@ export function Home() {
                             <p style={{ fontStyle: "italic", color: "rgb(163, 163, 163)" }}>
                                 galad.work@gmail.com</p>
                             <div style={{ width: "100%" }}>
-                                <Link to="projects" spy={true} smooth={true} offset={20} duration={500}>
+                                <Link to="projects" spy={true} smooth={true} offset={0} duration={500}>
                                     <button className="btn btn-outline-danger  get-started-btn" >
                                         See Projects <i className="bi bi-arrow-down-circle-fill"></i>
                                     </button>

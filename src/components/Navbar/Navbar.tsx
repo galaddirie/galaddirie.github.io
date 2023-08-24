@@ -12,7 +12,7 @@ const SCROLL_THRESHOLD = 10;
 
 const NAV_ITEMS = [
     { name: 'Projects', refName: 'projectsRef', path: 'projects' },
-    { name: 'About', refName: 'aboutRef', path: 'about' },
+    // { name: 'About', refName: 'aboutRef', path: 'about' },
     { name: 'Skills', refName: 'skillsRef', path: 'skills' },
     { name: 'CV', refName: 'cvRef', path: 'cv' },
     { name: 'Blog', refName: 'blogRef', path: null, externalLink: 'https://blog.galad.ca/' },
@@ -30,7 +30,7 @@ function ActiveDot({dotPosition, dotDirection, handleAnimationEnd }: any) {
 }
 
 function ActiveDotController({ refs, activeLink }: any) {
-    const [dotPosition, setDotPosition] = useState({});
+    const [dotPosition, setDotPosition] = useState({ left: '0%', top: '0%' });
     const [dotDirection, setDotDirection] = useState('');
 
 
@@ -75,6 +75,7 @@ function ActiveDotController({ refs, activeLink }: any) {
         setDotPosition({ left: leftPosition, top: topPosition });
 
         // if dotposition.left is does not exist, set it such that dot direction is right
+
         
         const newDirection = parseFloat(leftPosition) > parseFloat(dotPosition.left) ? 'right' : 'left';
         if (newDirection === dotDirection) {
@@ -116,7 +117,6 @@ function NavItem ({ item, refs, handleSetActive, onNavClick }: any) {
             ) : (
             <a className="nav-item item-underline-container" href={item.externalLink} target="_blank" rel="noopener noreferrer">
                 {item.name}
-                <div className="item-hover-underline"></div>
             </a>
             )}
         </li>
@@ -228,7 +228,8 @@ export function Navbar() {
                         onClick={toggleMobileNav}
                     ></i>
                 </nav>
-                <Link to={`/contact`} className="get-started-btn">Contact Me</Link>
+                {/* <Link to={`/contact`} className="get-started-btn">Contact Me</Link> */}
+                <a className="get-started-btn" href="mailto:galad.work@gmail.com">Contact Me</a>
             </div>
             </header>
             <Link to={''} className="visually-hidden-focusable" href="#hero">Skip Navigation</Link>

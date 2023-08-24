@@ -3,14 +3,16 @@ import './Projects.scss';
 import "@src/index.scss";
 import "@assets/css/bootstrap.min.css"
 import { Project } from "@src/types/Project";
-import  ProjectCard from "@components/Cards/Cards";
+import { CTA } from "@components/CTA/CTA";
+import  ProjectCard from "@src/components/Cards/ProjectCards";
 
-import projectsData from './projects.json';
+import projectsData from '@pages/Projects/ProjectsList';
 
 
 export function Projects() {
     return (
-        <section id="projects-container" className="projects text-light" style={{ paddingTop: "150px", paddingBottom: "150px" }}>
+        <>
+        <section id="projects-container" className="projects text-light" style={{ paddingTop: "100px", paddingBottom: "50px" }}>
             <div id="projects" className="container">
                 <h2>PROJECTS</h2>
             
@@ -21,6 +23,8 @@ export function Projects() {
                 </div>
             </div>
         </section>
+        <CTA />
+        </>
 
     );
 };

@@ -54,7 +54,7 @@ export const NavigationProvider: React.FC<NavigationProviderProps> = ({ children
                 duration: 100,
                 delay: 0,
                 smooth: 'linear',
-                offset: 20
+                
             });
         }
     }, []);
