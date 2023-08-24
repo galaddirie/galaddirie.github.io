@@ -8,7 +8,7 @@ import aboutImage from "@src/assets/img/about-me.png";
 
 export function About() {
     return (
-        <section id="about-container" className="about text-light" style={{ paddingTop: "100px", paddingBottom: "50px" }}>
+        <section id="about-container" className="about text-light" style={{ paddingTop: "150px", paddingBottom: "50px" }}>
             <div id="about" className="container">
                 <h2>About</h2>
                 

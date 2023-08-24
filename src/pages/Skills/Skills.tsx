@@ -73,7 +73,7 @@ const SKILLS = [
 
 export function Skills() {
     return (
-        <section id="skills-container" className="skills text-light" style={{ paddingTop: "100px", paddingBottom: "50px" }}>
+        <section id="skills-container" className="skills text-light" style={{ paddingTop: "200px", paddingBottom: "50px" }}>
             <div id="skills" className="container text-light">
                 <h2>Skills</h2>
                 <div className="skill-cards row">
