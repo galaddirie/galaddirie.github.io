@@ -5,7 +5,7 @@ import "./Home.scss";
 import "@src/index.scss";
 import "@assets/css/bootstrap.min.css"
 
-import HeroVideo from "@src/assets/video/video_compressed.webm";
+import HeroVideo from "@src/assets/video/video.mp4";
 import HeroImage from "@src/assets/img/hero.jpg";
 
 export function Home() {
@@ -27,7 +27,7 @@ export function Home() {
                 <div className="video-container">
                     <img src={HeroImage} alt="hero" className="lozad heroVideo video-thumbnail" style={setThumbnailStye()} />
                     <video autoPlay muted loop playsInline className="lozad heroVideo" onLoadedData={onLoadedData} poster={HeroImage}>
-                        <source src={HeroVideo}type="video/webm" />
+                        <source src={HeroVideo}type="video/mp4" />
                     </video>
                 </div>
 
