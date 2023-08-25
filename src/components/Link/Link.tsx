@@ -15,7 +15,7 @@ const smoothScrollTo = (elementId: string): void => {
 const ScrollingLink: FC<ScrollingLinkProps> = ({ to, children }) => {
   const handleClick = (event: MouseEvent<HTMLAnchorElement>): void => {
     event.preventDefault();
-    window.history.pushState({}, '', to);
+    window.history.replaceState({}, '', to);
     smoothScrollTo(to.slice(1)); // Remove the leading "/"
   };
 

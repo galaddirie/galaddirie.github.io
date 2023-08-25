@@ -30,7 +30,7 @@ function ActiveDot({dotPosition, dotDirection, handleAnimationEnd }: any) {
 }
 
 function ActiveDotController({ refs, activeLink }: any) {
-    const [dotPosition, setDotPosition] = useState({ left: '0%', top: '0%' });
+    const [dotPosition, setDotPosition] = useState({ left: '-300px', top: '32px' });
     const [dotDirection, setDotDirection] = useState('');
 
 
@@ -147,7 +147,7 @@ export function Navbar() {
   
     const handleSetActive = (to: string) => {
         setPreventNavUpdate(true);
-        navigate(`${to}`);
+        navigate(`${to}`, { replace: true });
         setActiveLink(to);
     }
 

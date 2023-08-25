@@ -34,7 +34,7 @@ export const NavigationProvider: React.FC<NavigationProviderProps> = ({ children
         Events.scrollEvent.register('end', (to: string) => {
             setPreventNavUpdate(false);
             if (!preventNavUpdate && to !== location.pathname.replace(/^\/+/, '')) {
-                navigate(`/${to}`);
+                navigate(`/${to}`, { replace: true });
                 
             }
         });
