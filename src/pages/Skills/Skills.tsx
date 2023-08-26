@@ -6,9 +6,9 @@ import "@assets/css/bootstrap.min.css"
 import SkillCard from "@src/components/Cards/SkillCard";
 import { SkillCardProps } from "@src/types/Skills";
 
-import frontendImage  from "@src/assets/img/skills/frontend.png";
-import backendImage  from "@src/assets/img/skills/backend.png";
-import devopsImage  from "@src/assets/img/skills/devops.png";
+import frontendImage  from "@src/assets/img/skills/frontend-downscale.png"
+import backendImage  from "@src/assets/img/skills/backend-downscale.png"
+import devopsImage  from "@src/assets/img/skills/devops-downscale.png"
 
 const SKILLS = [
     { 
