@@ -12,9 +12,7 @@ import { Element as Section } from 'react-scroll'
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { NavigationProvider } from '@src/contexts/NavigationContext';
 import lozad from 'lozad'
-//import '@assets/css/style.css'
 import './App.css'
-import '@assets/css/card.css'
 import "@src/index.scss";
 import 'bootstrap-icons/font/bootstrap-icons.css';
 
