@@ -19,6 +19,7 @@ const SKILLS = [
             { name: "CSS", icon: "fab fa-css3-alt" },
             { name: "Javascript", icon: "fab fa-js-square" },
             { name: "Typescript", icon: "fab fa-js-square" },
+            { name: "Redux", icon: "" },
             { name: "Tailwind", icon: "" },
             { name: "SASS", icon: "" },
             { name: "Material UI", icon: "" },
