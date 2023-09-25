@@ -30,7 +30,7 @@ export function CTA() {
                 <source src={CTAVideo} type="video/mp4" />
             </video>
           */}
-          <img src={CTAVideo} className="CTAimg">
+          <img src={CTAVideo} className="CTAimg" />
 
         </div>
         </section>
