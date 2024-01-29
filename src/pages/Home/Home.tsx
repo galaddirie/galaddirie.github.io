@@ -36,30 +36,10 @@ export function Home() {
             <div className="hero-intro container d-flex align-items-center" style={{ height: '100%' }}>
                 <div className="row">
                     <div className="mx-lg-auto text-lg-start text-center col-12 d-flex align-items-center">
-                        <div className="d-flex flex-column text-lg-start text-center ">
-                            <h1 style={{ textShadow: "0px 5px 5px #000000" }}>Galad Dirie<span>.</span></h1>
-                            <h2 style={{ fontStyle: "" }}>Full Stack Developer<span>.</span>
-                            </h2>
-                            <div className="social-links d-flex text-lg-start text-center mx-auto mx-lg-0 ">
+                        <div className="d-flex flex-column text-md-start text-center ">
+                            <h1 style={{ textShadow: "0px 5px 5px #000000", fontSize:"150px" }}>galad dirie<span>.</span></h1>
+                           
 
-                                <a className="pe-4 text-lg" href="https://www.linkedin.com/in/galad-dirie/" style={{ fontSize: "2rem", fontStyle: "italic", color: "crimsion" }}>
-                                    <i className="bi bi-linkedin"></i>
-                                </a>
-                                <a className="text-lg" href="https://github.com/galaddirie" style={{ fontSize: "2rem", fontStyle: "italic", color: "crimsion" }}>
-                                    <i className="bi bi-github"></i>
-                                </a>
-
-                            </div>
-                            <p style={{ fontStyle: "italic", color: "rgb(163, 163, 163)" }}>
-                                galad.work@gmail.com</p>
-                            <div style={{ width: "100%" }}>
-                                <Link to="projects" spy={true} smooth={true} offset={0} duration={500}>
-                                    <button className="btn btn-outline-danger  get-started-btn" >
-                                        See Projects <i className="bi bi-arrow-down-circle-fill"></i>
-                                    </button>
-                                </Link>
-
-                            </div>
 
                         </div>
                     </div>

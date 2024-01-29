@@ -14,23 +14,23 @@ const NAV_ITEMS = [
     { name: 'Projects', refName: 'projectsRef', path: 'projects' },
     // { name: 'About', refName: 'aboutRef', path: 'about' },
     { name: 'Skills', refName: 'skillsRef', path: 'skills' },
-    { name: 'CV', refName: 'cvRef', path: 'cv' },
+    // { name: 'CV', refName: 'cvRef', path: 'cv' },
     { name: 'Blog', refName: 'blogRef', path: null, externalLink: 'https://blog.galad.ca/' },
 ];
 
-function ActiveDot({dotPosition, dotDirection, handleAnimationEnd }: any) {
+function ActiveDot({ dotPosition, dotDirection, handleAnimationEnd }: any) {
     return (
-        <div  
-            className={`active-dot smear-to-${dotDirection}`} 
-            style={dotPosition} 
+        <div
+            className={`active-dot smear-to-${dotDirection}`}
+            style={dotPosition}
             onAnimationEnd={handleAnimationEnd}
         />
-        
+
     )
 }
 
 function ActiveDotController({ refs, activeLink }: any) {
-    const [dotPosition, setDotPosition] = useState({ left: '-300px', top: '32px' });
+    const [dotPosition, setDotPosition] = useState({ left: '-300px', top: '32px', width: '2px', height: '2px' });
     const [dotDirection, setDotDirection] = useState('');
 
 
@@ -40,17 +40,17 @@ function ActiveDotController({ refs, activeLink }: any) {
 
     const calculateHalfOfElement = (element: HTMLElement | null): string => {
         if (!element || !refs.navRef.current) return '0%';
-        
+
         const navRect = refs.navRef.current.getBoundingClientRect();
         const rect = element.getBoundingClientRect();
-        
+
         return `${(rect.left + rect.width / 2 - navRect.left) / navRect.width * 100}%`;
     }
 
     const getActivePosition = (to: string): string => {
         const foundNavItem = NAV_ITEMS.find(item => item.path === to);
         const refName = foundNavItem?.refName;
-        
+
         return refName ? calculateHalfOfElement(refs[refName]?.current) : '0%';
     }
 
@@ -58,25 +58,28 @@ function ActiveDotController({ refs, activeLink }: any) {
         const navRect = refs.navRef.current?.getBoundingClientRect();
 
         if (!navRect) return;
-        
+
         const logoTop = refs.logoRef.current?.getBoundingClientRect().top ?? 0;
         const top = logoTop + navRect.top;
 
         let leftPosition = '0%';
-        let topPosition = `${top + 5}px`;
-        
+        let topPosition = `${top + 2}px`;
+        let dotSize = '4px';
+
         if (activeLink !== '') {
             leftPosition = getActivePosition(activeLink);
             topPosition = `${top + 10}px`;
+            dotSize = '5px';
+
         } else if (refs.logoRef.current) {
             leftPosition = `${refs.logoRef.current.getBoundingClientRect().left - navRect.left}px`;
         }
 
-        setDotPosition({ left: leftPosition, top: topPosition });
+        setDotPosition({ left: leftPosition, top: topPosition, width: dotSize, height: dotSize });
 
         // if dotposition.left is does not exist, set it such that dot direction is right
 
-        
+
         const newDirection = parseFloat(leftPosition) > parseFloat(dotPosition.left) ? 'right' : 'left';
         if (newDirection === dotDirection) {
             setDotDirection('');
@@ -93,31 +96,31 @@ function ActiveDotController({ refs, activeLink }: any) {
     return (
         <ActiveDot dotPosition={dotPosition} dotDirection={dotDirection} handleAnimationEnd={handleAnimationEnd} />
     )
-}  
+}
 
 
-function NavItem ({ item, refs, handleSetActive, onNavClick }: any) {
+function NavItem({ item, refs, handleSetActive, onNavClick }: any) {
     return (
         <li key={item.name} ref={refs[item.refName]}>
             {item.path ? (
-            <Link
-            className="nav-item item-underline-container"
-            to={item.path}
-            spy={true}
-            smooth={true}
-            duration={500}
-            onSetActive={handleSetActive}
-            onClick={onNavClick}
-            delay={0}
-            activeClass="active"
-            >
-            {item.name}
-            {/* <div className="item-hover-underline"></div> */}
-            </Link>
+                <Link
+                    className="nav-item item-underline-container"
+                    to={item.path}
+                    spy={true}
+                    smooth={true}
+                    duration={500}
+                    onSetActive={handleSetActive}
+                    onClick={onNavClick}
+                    delay={0}
+                    activeClass="active"
+                >
+                    {item.name}
+                    {/* <div className="item-hover-underline"></div> */}
+                </Link>
             ) : (
-            <a className="nav-item item-underline-container" href={item.externalLink} target="_blank" rel="noopener noreferrer">
-                {item.name}
-            </a>
+                <a className="nav-item item-underline-container" href={item.externalLink} target="_blank" rel="noopener noreferrer">
+                    {item.name}
+                </a>
             )}
         </li>
     )
@@ -134,17 +137,17 @@ export function Navbar() {
     const { setPreventNavUpdate } = useNavigation();
     const location = useLocation();
     const navigate = useNavigate();
-  
+
     const refs = {
-      logoRef: useRef<HTMLSpanElement>(null),
-      navRef: useRef<HTMLDivElement>(null),
-      projectsRef: useRef<HTMLLIElement>(null),
-      aboutRef: useRef<HTMLLIElement>(null),
-      skillsRef: useRef<HTMLLIElement>(null),
-      cvRef: useRef<HTMLLIElement>(null),
-      blogRef: useRef<HTMLLIElement>(null)
+        logoRef: useRef<HTMLSpanElement>(null),
+        navRef: useRef<HTMLDivElement>(null),
+        projectsRef: useRef<HTMLLIElement>(null),
+        aboutRef: useRef<HTMLLIElement>(null),
+        skillsRef: useRef<HTMLLIElement>(null),
+        cvRef: useRef<HTMLLIElement>(null),
+        blogRef: useRef<HTMLLIElement>(null)
     };
-  
+
     const handleSetActive = (to: string) => {
         setPreventNavUpdate(true);
         navigate(`${to}`, { replace: true });
@@ -154,7 +157,7 @@ export function Navbar() {
     const toggleMobileNav = () => {
         setIsMobileNavOpen(!isMobileNavOpen);
     };
-    
+
     const onNavClick = () => {
         setIsMobileNavOpen(false);
     };
@@ -182,55 +185,68 @@ export function Navbar() {
             window.removeEventListener('resize', onResize);
         };
     }, []);
-    
+
     return (
         <>
             <header id="header" className={`fixed-top ${scrolled ? 'sticky-navbar' : ''}`}>
-            <div className="container d-flex align-items-center justify-content-lg-between">
-                <h1 className="logo me-auto me-lg-0">
-                <Link className="nav-item" to="" spy={true} smooth={true} duration={500} onSetActive={handleSetActive} activeClass="active">
-                    GD<span ref={refs.logoRef}> 
-                    {isMobile && (
-                        '.'
-                    )}
-                    </span>
-                </Link>
-                </h1>
+                <div className="container d-flex align-items-center justify-content-lg-between">
+                    <h1 className="logo me-auto me-lg-0 text-lowercase">
+                        <Link className="nav-item" to="" spy={true} smooth={true} duration={500} onSetActive={handleSetActive} activeClass="active">
+                            galad<span ref={refs.logoRef}>
+                                {isMobile && (
+                                    '.'
+                                )}
+                            </span>
+                        </Link>
+                    </h1>
 
-                <nav id="navbar" className={`navbar order-last order-lg-0 ${isMobileNavOpen ? 'navbar-mobile' : ''} `} ref={refs.navRef}>
-                    <ul>
-                        {isMobileNavOpen && (
-                            <li>
-                                <Link
-                                className="nav-item item-underline-container"
-                                to=""
-                                spy={true}
-                                smooth={true}
-                                duration={500}
-                                onSetActive={handleSetActive}
-                                onClick={onNavClick}
-                                delay={0}
-                                activeClass="active"
-                                >
-                                Home
-                                </Link>
-                            </li>
+                    <nav id="navbar" className={`navbar order-last order-lg-0 ${isMobileNavOpen ? 'navbar-mobile' : ''} `} ref={refs.navRef}>
+                        <ul>
+                            {isMobileNavOpen && (
+                                <li>
+                                    <Link
+                                        className="nav-item item-underline-container"
+                                        to=""
+                                        spy={true}
+                                        smooth={true}
+                                        duration={500}
+                                        onSetActive={handleSetActive}
+                                        onClick={onNavClick}
+                                        delay={0}
+                                        activeClass="active"
+                                    >
+                                        Home
+                                    </Link>
+                                </li>
+                            )}
+                            {NAV_ITEMS.map(item => (
+                                <NavItem item={item} refs={refs} handleSetActive={handleSetActive} onNavClick={onNavClick} />
+                            ))}
+                            
+                        </ul>
+                        {(!isMobile && !isMobileNavOpen) && (
+                            <ActiveDotController refs={refs} activeLink={activeLink} />
                         )}
-                        {NAV_ITEMS.map(item => (
-                            <NavItem item={item} refs={refs} handleSetActive={handleSetActive} onNavClick={onNavClick} />
-                        ))}
-                    </ul>
-                    { (!isMobile && !isMobileNavOpen) && (
-                        <ActiveDotController refs={refs} activeLink={activeLink} />
+                        <i
+                            className={`bi ${isMobileNavOpen ? 'bi-x' : 'bi-list'} mobile-nav-toggle`}
+                            onClick={toggleMobileNav}
+                        ></i>
+                    </nav>
+                    {!isMobile && (
+                        <div className="header-social-links social-links d-flex align-items-center justify-content-center justify-content-lg-end gap-3">
+                            {/* Your social links here */}
+                            <a className="text-lg" href="https://www.linkedin.com/in/galad-dirie/" style={{ fontSize: "1.2rem", fontStyle: "italic", color: "crimsion" }}>
+                                <i className="bi bi-linkedin"></i>
+                            </a>
+                            <a className="text-lg" href="https://github.com/galaddirie" style={{ fontSize: "1.2rem", fontStyle: "italic", color: "crimsion" }}>
+                                <i className="bi bi-github"></i>
+                            </a>
+                            <a className="text-lg" href="mailto:hello@galad.ca" style={{ fontSize: "1.2rem", fontStyle: "italic", color: "crimsion" }}>
+                                <i className="bi bi-envelope"></i>
+                            </a>
+                        </div>
                     )}
-                    <i 
-                        className={`bi ${isMobileNavOpen ? 'bi-x' : 'bi-list'} mobile-nav-toggle`} 
-                        onClick={toggleMobileNav}
-                    ></i>
-                </nav>
-                {/* <Link to={`/contact`} className="get-started-btn">Contact Me</Link> */}
-                <a className="get-started-btn" href="mailto:galad.work@gmail.com">Contact Me</a>
-            </div>
+                </div>
             </header>
             <Link to={''} className="visually-hidden-focusable" href="#hero">Skip Navigation</Link>
         </>

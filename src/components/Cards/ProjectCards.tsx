@@ -48,7 +48,10 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
     }
 
     return (
-        <div className={`col-lg-6 col-12  my-2 card-container ${isBright ? 'bright-background' : 'dark-background'}`}>
+       
+            
+        <div className={`col-lg-6 col-12  my-2 px-2 card-container ${isBright ? 'bright-background' : 'dark-background'}`}>
+        <a href={project.demo.length > 0 ? project.demo[0].url : project.github[0].url} target="_blank" rel="noopener noreferrer">
             <div className="card-hoverable card">
                 <div className="card-img-container">
                     <div className="card-img"  style={{ backgroundImage: `url(${project.image})` }} />
@@ -88,7 +91,9 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
 
                 </div>
             </div>
+        </a>
         </div>
+        
     );
 };
 

@@ -74,9 +74,9 @@ const SKILLS = [
 
 export function Skills() {
     return (
-        <section id="skills-container" className="skills text-light" style={{ paddingTop: "200px", paddingBottom: "50px" }}>
-            <div id="skills" className="container text-light">
-                <h2>Skills</h2>
+        <section id="skills-container" className="skills text-light" style={{ paddingTop: "150px", marginBottom: "300px" }}>
+            <div id="skills " className="container text-light">
+                <h2 className="text-uppercase">Skills</h2>
                 <div className="skill-cards row">
                     {SKILLS.map((card: SkillCardProps, index: number) => (
                         <SkillCard key={index} name={card.name} skills={card.skills} description={card.description} image={card.image} />

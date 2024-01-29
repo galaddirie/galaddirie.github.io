@@ -14,9 +14,9 @@ export function CTA() {
         <div className="container cta-overlay-container">
 
             <div className="text-center text-light">
-                <h3>Contact Me</h3>
-                <p>galad.work@gmail.com</p>
-                <a className="get-started-btn" href="mailto:galad.work@gmail.com">Contact Me</a>
+                <h2>Let's work together</h2>
+                <p>Interested in working together? We should queue up a chat. I’ll buy the coffee.</p>
+                <a className="get-started-btn" href="mailto:hello@galad.ca">Get Started</a>
             </div>
         
 

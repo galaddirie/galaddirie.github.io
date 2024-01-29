@@ -49,9 +49,7 @@ function App() {
               <Section name="skills">
                 <Skills />
               </Section>
-              <Section name="cv">
-                <CV />
-              </Section>
+              
             </div>
           </main>
           <Footer />

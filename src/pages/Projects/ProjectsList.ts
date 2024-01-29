@@ -137,7 +137,7 @@ const ProjectList =
         "demo": []
     },
     {
-        "title": "This Website",
+        "title": "galad.ca",
         "image": portfolioImg,
         "description": [
             "You are here!",

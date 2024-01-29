@@ -14,7 +14,7 @@ export default function SkillCard({name, skills, description, image}: SkillCardP
         <div className="col-lg-4 col-12 mb-3">
             <div className="card pe-3 ">
                 <img className="card-image" src={image} alt="Card image cap" />
-                <p className="card-title py-3">
+                <p className="card-title py-3 text-uppercase">
                     {name}
                 </p>
                 {/* <p className="card-info">{description}</p> */}

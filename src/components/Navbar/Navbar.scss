@@ -13,13 +13,12 @@
         background-color: black !important;
     }
     .logo {
-        font-size: 32px;
+        font-size: 25px;
         margin: 0;
         padding: 0;
         line-height: 1;
         font-weight: 700;
         letter-spacing: 2px;
-        text-transform: uppercase;
 
         a {
             color: $bg-light;
@@ -55,9 +54,6 @@
     position: relative;
 
 
-    .logo {
-        font-size: 1rem;
-    }
 
     ul {
         margin: 0;
@@ -186,7 +182,7 @@
     width: 5px;
     background-color: crimson; // or any desired color
     border-radius: 50%;
-    transition: left 0.3s ease-out;
+    transition: 0.3s ease-out;
 }
 
 /* Smear to the left */
