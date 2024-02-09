@@ -30,7 +30,7 @@ function ActiveDot({ dotPosition, dotDirection, handleAnimationEnd }: any) {
 }
 
 function ActiveDotController({ refs, activeLink }: any) {
-    const [dotPosition, setDotPosition] = useState({ left: '-300px', top: '32px', width: '2px', height: '2px' });
+    const [dotPosition, setDotPosition] = useState({ left: '-0', top: '32px', width: '2px', height: '2px' });
     const [dotDirection, setDotDirection] = useState('');
 
 
@@ -72,7 +72,7 @@ function ActiveDotController({ refs, activeLink }: any) {
             dotSize = '5px';
 
         } else if (refs.logoRef.current) {
-            leftPosition = `${refs.logoRef.current.getBoundingClientRect().left - navRect.left}px`;
+            leftPosition = `${refs.logoRef.current.getBoundingClientRect().left - navRect.left + 5}px`;
         }
 
         setDotPosition({ left: leftPosition, top: topPosition, width: dotSize, height: dotSize });
@@ -224,9 +224,9 @@ export function Navbar() {
                             ))}
                             
                         </ul>
-                        {(!isMobile && !isMobileNavOpen) && (
+                        {/* {(!isMobile && !isMobileNavOpen) && (
                             <ActiveDotController refs={refs} activeLink={activeLink} />
-                        )}
+                        )} */}
                         <i
                             className={`bi ${isMobileNavOpen ? 'bi-x' : 'bi-list'} mobile-nav-toggle`}
                             onClick={toggleMobileNav}

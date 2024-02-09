@@ -38,7 +38,7 @@ export function Home() {
                     <div className="mx-lg-auto text-lg-start text-center col-12 d-flex align-items-center">
                         <div className="d-flex flex-column text-md-start text-center ">
                             <h1 style={{ textShadow: "0px 5px 5px #000000", fontSize:"150px" }}>galad dirie<span>.</span></h1>
-                           
+                            <h2 style={{ textShadow: "0px 5px 5px #000000" }}>full-stack developer</h2>
 
 
                         </div>

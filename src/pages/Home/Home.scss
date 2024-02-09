@@ -22,11 +22,21 @@
 
 #hero h1 {
     margin: 0;
-    font-size: 56px;
-    font-weight: 700;
-    line-height: .8em;
+    font-family: "bd-geminis", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 96px;
+    line-height: .84em;
+    letter-spacing: -7px;
     color: #fff;
     // all caps
+    text-transform: uppercase;
+}
+#hero h2 {
+    margin: 10px 0 0 0;
+    font-family: "lores-9-plus-wide", sans-serif;
+    font-size: 24px;
+    font-weight: normal;
     text-transform: uppercase;
 }
 
@@ -39,7 +49,6 @@
     margin: 10px 0 0 0;
     font-size: 24px;
     font-weight: normal;
-    font-family: "Raleway", sans-serif;
 }
 
 
@@ -47,16 +56,17 @@
 
 
 @media (max-width: 768px) {
-
-    #hero h1 {
-        font-size: 23px !important;
-        line-height: 20px;
+    .hero-intro {
+        top: -90vh;
+    }
+    #hero h1,
+    #hero h2{
+        // text-align: left;
+    }
+    #hero span {
+        display: none;
     }
 
-    #hero h2 {
-        font-size: 15px;
-        line-height: 24px;
-    }
 }
 
 
