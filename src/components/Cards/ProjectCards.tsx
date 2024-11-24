@@ -82,11 +82,11 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
                                 <i className="bi bi-github"></i> {source.name ? source.name : 'Github'}
                             </a>
                         ))}
-                        {project.demo.map((source, index) => (
-                        <a key={index} href={source.url} className="btn btn-danger" target="_blank" rel="noopener noreferrer">
+                        {/* {project.demo.map((source, index) => (
+                        <a key={index} href={source.url} className="btn btn-danger disabled" target="_blank" rel="noopener noreferrer">
                             <i className="bi bi-link-45deg"></i> {source.name ? source.name : 'Live'}
                         </a>
-                        ))}
+                        ))} */}
                     </div>
 
                 </div>

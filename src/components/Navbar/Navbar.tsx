@@ -15,7 +15,7 @@ const NAV_ITEMS = [
     // { name: 'About', refName: 'aboutRef', path: 'about' },
     { name: 'Skills', refName: 'skillsRef', path: 'skills' },
     // { name: 'CV', refName: 'cvRef', path: 'cv' },
-    { name: 'Blog', refName: 'blogRef', path: null, externalLink: 'https://blog.galad.ca/' },
+    // { name: 'Blog', refName: 'blogRef', path: null, externalLink: 'https://blog.galad.ca/' },
 ];
 
 function ActiveDot({ dotPosition, dotDirection, handleAnimationEnd }: any) {
