@@ -1,32 +1,31 @@
-import React from "react";
+import React from 'react';
+import { SkillCardProps } from '@src/types/Skills';
 
-import './Cards.scss';
-import "@src/index.scss";
-import "@assets/css/bootstrap.min.css"
+export default function SkillCard({
+  name,
+  skills,
+  description,
+  image,
+}: SkillCardProps) {
+  return (
+    <div className='lg:w-1/3 w-full mb-3'>
+      <div className='bg-black rounded border border-gray-700 p-5 h-75'>
+        <img
+          className='w-12 h-12 rounded bg-cover bg-no-repeat bg-center'
+          src={image}
+          alt='Card image cap'
+        />
+        <p className='font-semibold text-2xl py-3 uppercase'>{name}</p>
+        {/* <p className="font-normal text-lg leading-5">{description}</p> */}
 
-import { SkillCardProps } from "@src/types/Skills";
-
-
-    
-
-export default function SkillCard({name, skills, description, image}: SkillCardProps) {
-    return (
-        <div className="col-lg-4 col-12 mb-3">
-            <div className="card pe-3 ">
-                <img className="card-image" src={image} alt="Card image cap" />
-                <p className="card-title py-3 text-uppercase">
-                    {name}
-                </p>
-                {/* <p className="card-info">{description}</p> */}
-                
-                <div className="card-tags mb-3">
-                    {skills.map((skill:any, index:any) => (
-                        <div className="skill-icon" key={index}>
-                                {skill.name}
-                        </div>
-                    ))}
+        <div className='mb-3'>
+          {skills.map((skill: any, index: any) => (
+            <div className='skill-icon' key={index}>
+              {skill.name}
             </div>
+          ))}
         </div>
-        </div>
-    );
+      </div>
+    </div>
+  );
 }

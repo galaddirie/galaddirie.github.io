@@ -3,10 +3,8 @@
   --primaryDARK: rgb(180, 22, 49);
 }
 
-
-
 body {
-  font-family: "lores-12", sans-serif;
+  font-family: 'lores-12', sans-serif;
   font-weight: 300;
   font-style: normal;
   color: #444444;
@@ -29,11 +27,10 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: "lores-9-plus-wide", sans-serif;
+  font-family: 'lores-9-plus-wide', sans-serif;
   font-weight: 700;
   font-style: normal;
 }
-
 
 .top-buffer {
   margin-top: 150px;
@@ -47,7 +44,6 @@ h6 {
   margin-top: 300px;
 }
 
-
 .divider {
   overflow: hidden;
   position: relative;
@@ -55,8 +51,6 @@ h6 {
   align-self: center;
   width: 100%;
   top: 30px;
-
-
 }
 
 .divider svg {
@@ -72,6 +66,4 @@ h6 {
 .main-container {
   position: relative;
   /* top: -150px; */
-
-
 }

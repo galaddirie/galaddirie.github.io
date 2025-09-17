@@ -1,26 +1,28 @@
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
-import path, { resolve } from 'path'
+import { defineConfig } from 'vite';
+import react from '@vitejs/plugin-react';
+import type { Plugin } from 'vite';
+// @ts-ignore
+import tailwindcss from '@tailwindcss/vite';
+import path, { resolve } from 'path';
 
-
-const root = resolve(__dirname, "src");
-const pagesDir = resolve(root, "pages");
-const assetsDir = resolve(root, "assets");
-const componentsDir = resolve(root, "components");
-const typesDir = resolve(root, "types");
-const contextDir = resolve(root, "contexts");
-const hooksDir = resolve(root, "hooks");
+const root = resolve(__dirname, 'src');
+const pagesDir = resolve(root, 'pages');
+const assetsDir = resolve(root, 'assets');
+const componentsDir = resolve(root, 'components');
+const typesDir = resolve(root, 'types');
+const contextDir = resolve(root, 'contexts');
+const hooksDir = resolve(root, 'hooks');
 export default defineConfig({
-  plugins: [react()],
+  plugins: [react(), tailwindcss()],
   resolve: {
     alias: {
-      "@src": root,
-      "@assets": assetsDir,
-      "@pages": pagesDir,
-      "@components": componentsDir,
-      "@types": typesDir,
-      "@contexts": contextDir,
-      "@hooks": hooksDir,
+      '@src': root,
+      '@assets': assetsDir,
+      '@pages': pagesDir,
+      '@components': componentsDir,
+      '@types': typesDir,
+      '@contexts': contextDir,
+      '@hooks': hooksDir,
     },
   },
   server: {
@@ -32,12 +34,12 @@ export default defineConfig({
     port: 3000,
   },
   build: {
-    outDir: "build",
+    outDir: 'build',
     emptyOutDir: true,
     rollupOptions: {
       input: {
-        main: path.resolve(__dirname, "index.html"),
+        main: path.resolve(__dirname, 'index.html'),
       },
     },
   },
-})
+});

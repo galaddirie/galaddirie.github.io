@@ -1,0 +1,58 @@
+/* Custom effects for CTA component that can't be handled by Tailwind */
+
+/* Wave SVG positioning and transforms */
+#wave.top-wave {
+  position: relative;
+  top: -1px;
+  transform: rotate(180deg);
+  transition: 0.3s;
+}
+
+#wave.top-wave path {
+  transform: translate(0, 0px);
+  opacity: 1;
+}
+
+#wave.bottom-wave {
+  position: relative;
+  transform: rotate(0deg);
+  transition: 0.3s;
+  top: 1px;
+}
+
+#wave.bottom-wave path {
+  position: relative;
+  top: 1px;
+  transform: translate(0, 0px);
+  opacity: 1;
+}
+
+/* CTA image positioning */
+.CTAimg {
+  position: absolute;
+  top: -105%;
+  left: 0;
+  width: 100%;
+  background: linear-gradient(transparent, #030211);
+  transition: opacity 0.4s ease;
+  z-index: -1;
+}
+
+/* CTA video specific styles */
+.cta-video-container video {
+  content: '';
+  position: absolute;
+  top: 5%;
+  left: 0;
+  width: 100%;
+  background: linear-gradient(transparent, #030211);
+  transition: opacity 400ms ease;
+  z-index: -1;
+}
+
+@media screen and (max-width: 900px) {
+  .cta-video-container video {
+    width: unset;
+    height: 100%;
+  }
+}

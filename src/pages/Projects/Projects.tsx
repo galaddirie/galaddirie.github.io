@@ -1,30 +1,25 @@
-import React from "react";
-import './Projects.scss';
-import "@src/index.scss";
-import "@assets/css/bootstrap.min.css"
-import { Project } from "@src/types/Project";
-import { CTA } from "@components/CTA/CTA";
-import  ProjectCard from "@src/components/Cards/ProjectCards";
+import React from 'react';
+import { Project } from '@src/types/Project';
+import { CTA } from '@components/CTA/CTA';
+import ProjectCard from '@src/components/Cards/ProjectCards';
 
 import projectsData from '@pages/Projects/ProjectsList';
 
-
 export function Projects() {
-    return (
-        <>
-        <section id="projects-container" className="projects text-light" style={{ paddingTop: "150px", paddingBottom: "50px" }}>
-            <div id="projects" className="container">
-                <h2>PROJECTS</h2>
-            
-                <div className=" row">
-                    {projectsData.map((project: Project, index: number) => (
-                        <ProjectCard key={index} project={project} />
-                    ))}
-                </div>
-            </div>
-        </section>
-        <CTA />
-        </>
+  return (
+    <>
+      <section id='projects-container' className='text-white pt-36 pb-12'>
+        <div id='projects' className='mx-auto px-4'>
+          <h2 className='text-2xl font-bold uppercase mb-8'>PROJECTS</h2>
 
-    );
-};
+          <div className='flex flex-wrap -mx-2'>
+            {projectsData.map((project: Project, index: number) => (
+              <ProjectCard key={index} project={project} />
+            ))}
+          </div>
+        </div>
+      </section>
+      <CTA />
+    </>
+  );
+}
