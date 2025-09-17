@@ -1,10 +1,16 @@
-import React, { createContext, useContext, useEffect, useState } from 'react';
-import { Events, scroller, scrollSpy } from 'react-scroll';
+import React, {
+  createContext,
+  useContext,
+  useEffect,
+  useRef,
+  useState,
+} from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 
 interface NavigationContextProps {
-  preventNavUpdate: boolean;
-  setPreventNavUpdate: React.Dispatch<React.SetStateAction<boolean>>;
+  activeSection: string;
+  isScrolling: boolean;
+  scrollToSection: (section: string) => void;
 }
 
 const NavigationContext = createContext<NavigationContextProps | undefined>(
@@ -15,51 +21,126 @@ interface NavigationProviderProps {
   children: React.ReactNode;
 }
 
+// Section IDs that correspond to your navigation
+const SECTIONS = ['', 'projects', 'skills', 'contact'];
+
 export const NavigationProvider: React.FC<NavigationProviderProps> = ({
   children,
 }) => {
-  const [preventNavUpdate, setPreventNavUpdate] = useState(false);
+  const [activeSection, setActiveSection] = useState('');
+  const [isScrolling, setIsScrolling] = useState(false);
+  const scrollTimeoutRef = useRef<NodeJS.Timeout | undefined>(undefined);
+  const isManualScrollRef = useRef(false);
   const location = useLocation();
   const navigate = useNavigate();
 
+  // Function to scroll to a section
+  const scrollToSection = (section: string) => {
+    isManualScrollRef.current = true;
+    const element = document.getElementById(section || 'hero');
+
+    if (element) {
+      const navbarHeight = 80; // Adjust based on your navbar height
+      const elementPosition =
+        element.getBoundingClientRect().top + window.pageYOffset;
+      const offsetPosition =
+        section === '' ? 0 : elementPosition - navbarHeight;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth',
+      });
+
+      // Update URL without triggering scroll
+      navigate(`/${section}`, { replace: true });
+      setActiveSection(section);
+
+      // Reset manual scroll flag after animation completes
+      setTimeout(() => {
+        isManualScrollRef.current = false;
+      }, 800);
+    }
+  };
+
+  // Handle scroll events to update active section
   useEffect(() => {
-    Events.scrollEvent.register('begin', (_to: string) => {
-      setPreventNavUpdate(true);
-    });
+    const handleScroll = () => {
+      // Skip if we're in a manual scroll
+      if (isManualScrollRef.current) return;
 
-    Events.scrollEvent.register('end', (to: string) => {
-      setPreventNavUpdate(false);
-      if (!preventNavUpdate && to !== location.pathname.replace(/^\/+/, '')) {
-        navigate(`/${to}`, { replace: true });
+      setIsScrolling(true);
+
+      // Clear existing timeout
+      if (scrollTimeoutRef.current) {
+        clearTimeout(scrollTimeoutRef.current);
       }
-    });
 
-    scrollSpy.update();
+      // Set scrolling to false after scroll ends
+      scrollTimeoutRef.current = setTimeout(() => {
+        setIsScrolling(false);
+      }, 150);
+
+      // Find the current section based on scroll position
+      const scrollPosition = window.scrollY + 100; // Offset for detection
+      let currentSection = '';
+
+      for (const sectionId of SECTIONS) {
+        const element = document.getElementById(sectionId || 'hero');
+        if (element) {
+          const { top, bottom } = element.getBoundingClientRect();
+          const elementTop = top + window.scrollY;
+          const elementBottom = bottom + window.scrollY;
+
+          if (scrollPosition >= elementTop && scrollPosition < elementBottom) {
+            currentSection = sectionId;
+            break;
+          }
+        }
+      }
+
+      // Update active section and URL if changed
+      if (currentSection !== activeSection) {
+        setActiveSection(currentSection);
+        navigate(`/${currentSection}`, { replace: true });
+      }
+    };
+
+    // Throttle scroll handler
+    let ticking = false;
+    const throttledScroll = () => {
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          handleScroll();
+          ticking = false;
+        });
+        ticking = true;
+      }
+    };
+
+    window.addEventListener('scroll', throttledScroll, { passive: true });
+
+    // Initial check
+    handleScroll();
 
     return () => {
-      Events.scrollEvent.remove('begin');
-      Events.scrollEvent.remove('end');
+      window.removeEventListener('scroll', throttledScroll);
+      if (scrollTimeoutRef.current) {
+        clearTimeout(scrollTimeoutRef.current);
+      }
     };
-  }, [preventNavUpdate, location.pathname, navigate]);
+  }, [activeSection, navigate]);
 
+  // Handle browser back/forward navigation
   useEffect(() => {
-    const hash = location.pathname.replace(/^\/+/, '');
-    if (hash) {
-      scroller.scrollTo(hash, {
-        duration: 100,
-        delay: 0,
-        smooth: 'linear',
-      });
+    const section = location.pathname.replace(/^\/+/, '');
+    if (section !== activeSection && !isManualScrollRef.current) {
+      scrollToSection(section);
     }
-  }, [location.pathname]);
-
-  useEffect(() => {
-    console.log(`preventNavUpdate: ${preventNavUpdate}`);
-  }, [preventNavUpdate]);
+  }, [location.pathname, scrollToSection, activeSection]);
 
   return (
     <NavigationContext.Provider
-      value={{ preventNavUpdate, setPreventNavUpdate }}
+      value={{ activeSection, isScrolling, scrollToSection }}
     >
       {children}
     </NavigationContext.Provider>

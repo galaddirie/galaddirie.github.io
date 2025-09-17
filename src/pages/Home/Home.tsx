@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-scroll';
+import { ArrowRight } from 'lucide-react';
 import './home-effects.css';
 
 import HeroVideo from '@src/assets/video/video.mp4';
@@ -59,9 +60,10 @@ export function Home() {
                 <div className='mt-6 flex flex-col sm:flex-row gap-4 justify-center md:justify-start cursor-pointer'>
                   <Link
                     to='projects'
-                    className='inline-block text-white rounded px-8 py-4 border-2 border-rose-600 bg-rose-600 transition-colors duration-300 hover:bg-black hover:text-white text-base font-semibold uppercase tracking-wide'
+                    className='inline-flex items-center gap-2 text-white rounded px-8 py-3 border-2 border-rose-600 bg-black transition-colors duration-300 hover:bg-rose-600 hover:text-black text-lg font-semibold'
                   >
                     See Projects
+                    <ArrowRight className='w-5 h-5' />
                   </Link>
                 </div>
               </div>

@@ -29,8 +29,7 @@
     "react-dom": "^19.1.1",
     "react-icons": "^5.5.0",
     "react-lazy-load-image-component": "^1.5.6",
-    "react-router-dom": "^6.9.0",
-    "react-scroll": "^1.8.9"
+    "react-router-dom": "^6.9.0"
   },
   "devDependencies": {
     "@eslint/js": "^9.17.0",
@@ -38,7 +37,6 @@
     "@types/lozad": "^1.16.1",
     "@types/react": "^19.1.13",
     "@types/react-dom": "^19.1.9",
-    "@types/react-scroll": "^1.8.6",
     "@typescript-eslint/eslint-plugin": "^8.23.0",
     "@typescript-eslint/parser": "^8.23.0",
     "@vitejs/plugin-react": "^4.7.0",
