@@ -31,7 +31,7 @@ export const NavigationProvider: React.FC<NavigationProviderProps> = ({
   const navigate = useNavigate();
 
   useEffect(() => {
-    Events.scrollEvent.register('begin', (to: string) => {
+    Events.scrollEvent.register('begin', (_to: string) => {
       setPreventNavUpdate(true);
     });
 
@@ -48,7 +48,7 @@ export const NavigationProvider: React.FC<NavigationProviderProps> = ({
       Events.scrollEvent.remove('begin');
       Events.scrollEvent.remove('end');
     };
-  }, [preventNavUpdate]);
+  }, [preventNavUpdate, location.pathname, navigate]);
 
   useEffect(() => {
     const hash = location.pathname.replace(/^\/+/, '');
@@ -59,7 +59,7 @@ export const NavigationProvider: React.FC<NavigationProviderProps> = ({
         smooth: 'linear',
       });
     }
-  }, []);
+  }, [location.pathname]);
 
   useEffect(() => {
     console.log(`preventNavUpdate: ${preventNavUpdate}`);
