@@ -48,15 +48,14 @@ export function Home() {
             <source src={HeroVideo} type='video/mp4' />
           </video>
         </div>
-      </div>
-      <div className='hero-intro mx-auto px-4 flex items-center h-0 relative -top-[65vh] md:-top-[90vh]'>
-        <div className='w-full'>
-          <div className='lg:mx-auto text-center lg:text-left w-full flex items-center'>
-            <div className='flex flex-col text-center md:text-left'>
-              <h1
-                className="m-0 font-['bd-geminis'] font-normal text-[96px] md:text-[150px] leading-[0.84] -mb-4 mt-8 -tracking-[7px] text-white uppercase"
-                style={{ textShadow: '0px 5px 5px #000000' }}
-              >
+        <div className='hero-intro absolute inset-0 flex items-center justify-center px-4 z-10'>
+          <div className='w-full  mx-auto'>
+            <div className='text-center md:text-left w-full'>
+              <div className='flex flex-col text-center md:text-left'>
+                <h1
+                  className="my-[30px] -mb-[15px] !font-['bd-geminis'] font-normal text-[96px] md:text-[150px] leading-[0.84] -tracking-[7px] text-white uppercase"
+                  style={{ textShadow: '0px 5px 5px #000000' }}
+                >
                 galad dirie
                 <span className='text-red-600 hidden md:inline'>.</span>
               </h1>
@@ -66,6 +65,7 @@ export function Home() {
               >
                 full-stack developer
               </h2>
+              </div>
             </div>
           </div>
         </div>

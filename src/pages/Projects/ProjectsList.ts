@@ -5,11 +5,12 @@ import pathfinderImg from '@assets/img/projects/pathfinder-img.png';
 import jgDiffImg from '@assets/img/projects/jg_diff-img.png';
 import portfolioImg from '@assets/img/projects/portfolio-img.png';
 import nycDataImg from '@assets/img/projects/nyc_data_image-img.png';
-import silkImg from '@assets/img/projects/portfolio-img.png';
+import silkImg from '@assets/img/projects/silk-img.png';
+import browsergridImg from '@assets/img/projects/browsergrid-img.png';
 const ProjectList = [
   {
     title: 'BrowserGrid',
-    image: silkImg,
+    image: browsergridImg,
     description: [
       'Developed a declarative webscraping tool that allows users to scrape websites using a simple, declarative syntax.',
       'The tool is built using Python and the Scrapy framework, and allows users to scrape websites using a simple, declarative syntax.',
@@ -31,7 +32,7 @@ const ProjectList = [
       'The tool is built using Python and the Scrapy framework, and allows users to scrape websites using a simple, declarative syntax.',
       'The tool is built using Python and the Scrapy framework, and allows users to scrape websites using a simple, declarative syntax.',
     ],
-    tech: ['python', 'scrapy'],
+    tech: ['python', 'scrapy', "10k Downloads"],
     github: [
       {
         url: 'https://github.com/galaddirie/silk',

@@ -10,7 +10,7 @@ export function Projects() {
     <>
       <section id='projects-container' className='text-white pt-36 pb-12'>
         <div id='projects' className='mx-auto px-4'>
-          <h2 className='text-2xl font-bold uppercase mb-8'>PROJECTS</h2>
+          <h2 className='text-6xl font-bold uppercase mb-8'>PROJECTS</h2>
 
           <div className='flex flex-wrap -mx-2'>
             {projectsData.map((project: Project, index: number) => (

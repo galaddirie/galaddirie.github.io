@@ -11,15 +11,6 @@ body {
   background: linear-gradient(#030211 100vh, #000000 130vh, black);
 }
 
-a {
-  color: var(--primary);
-  text-decoration: none;
-}
-
-a:hover {
-  color: var(--primary);
-  text-decoration: none;
-}
 
 h1,
 h2,
@@ -28,42 +19,7 @@ h4,
 h5,
 h6 {
   font-family: 'lores-9-plus-wide', sans-serif;
-  font-weight: 700;
-  font-style: normal;
+
 }
 
-.top-buffer {
-  margin-top: 150px;
-}
 
-.bot-buffer {
-  margin-bottom: 150px;
-}
-
-.top-buffer-lg {
-  margin-top: 300px;
-}
-
-.divider {
-  overflow: hidden;
-  position: relative;
-  height: 100px;
-  align-self: center;
-  width: 100%;
-  top: 30px;
-}
-
-.divider svg {
-  height: 100%;
-  width: 100%;
-}
-
-.container {
-  max-width: 1800px;
-  margin: 0 auto;
-  padding: 0 20px;
-}
-.main-container {
-  position: relative;
-  /* top: -150px; */
-}

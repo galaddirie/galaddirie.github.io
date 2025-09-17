@@ -111,7 +111,7 @@ export function Skills() {
       <div className='mx-auto px-4 text-white'>
         {/* Section header */}
         <div className='mb-12'>
-          <h2 className='uppercase mb-6 text-2xl font-bold'>Skills</h2>
+          <h2 className='uppercase mb-6 text-6xl font-bold'>Skills</h2>
           <p className='text-gray-400 max-w-2xl'>
             I'm proficient in a range of modern technologies for building
             robust, scalable, and user-friendly applications.
@@ -123,10 +123,10 @@ export function Skills() {
           {skillCategories.map((category, catIndex) => (
             <div key={category.title} className='skill-category mb-12'>
               <div className='category-header flex items-center mb-6'>
-                <span className='category-icon mr-3 flex items-center justify-center text-white text-xl transition-all duration-300 hover:text-gray-300 hover:scale-110'>
+                <span className='category-icon mr-3 flex items-center justify-center text-white text-3xl transition-all duration-300 hover:text-gray-300 hover:scale-110'>
                   <category.icon />
                 </span>
-                <h3 className='category-title uppercase font-semibold text-2xl text-white'>
+                <h3 className='category-title uppercase font-semibold text-4xl text-white'>
                   {category.title}
                 </h3>
               </div>
@@ -136,12 +136,12 @@ export function Skills() {
                   <div key={skill.name} className='flex justify-center'>
                     <div className='relative bg-black border border-gray-700 rounded-md p-6 w-32 h-32 sm:w-36 sm:h-36 md:w-44 md:h-44 flex flex-col items-center justify-center text-center transition-all duration-300 cursor-pointer hover:border-gray-500 hover:-translate-y-1 group'>
                       <div
-                        className='text-4xl transition-transform duration-300 mb-2 group-hover:scale-110'
+                        className='text-5xl transition-transform duration-300 mb-2 group-hover:scale-110'
                         style={{ color: skill.color }}
                       >
                         <skill.icon />
                       </div>
-                      <span className='text-sm font-medium text-gray-200 leading-tight text-center'>
+                      <span className='text-xs font-medium text-gray-200 leading-tight text-center'>
                         {skill.name}
                       </span>
                     </div>
