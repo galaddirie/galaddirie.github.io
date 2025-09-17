@@ -1,7 +1,7 @@
 import React from 'react';
 import './cta-effects.css';
 import CTAVideo from '@src/assets/img/cta.gif';
-import { Link } from 'react-scroll';
+import { Link } from 'react-router-dom';
 
 export function CTA() {
   return (
@@ -40,7 +40,6 @@ export function CTA() {
           <Link
             to='contact'
             className='inline-block text-white rounded px-6 py-2 border-2 border-rose-600 bg-black transition-colors duration-300 hover:bg-rose-600 hover:text-black text-sm'
-            href='#contact'
           >
             Get Started
           </Link>
