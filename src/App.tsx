@@ -1,22 +1,16 @@
-import React, { useState, useEffect } from 'react';
-import reactLogo from '@assets/test.png';
+import React, { useEffect } from 'react';
 import { Navbar } from '@components/Navbar/Navbar';
 
 import { Home } from '@pages/Home/Home';
 import { Projects } from '@pages/Projects/Projects';
-import { About } from '@pages/About/About';
 import { Skills } from '@pages/Skills/Skills';
-import { CV } from '@pages/CV/CV';
+import { Contact } from '@pages/Contact/Contact';
 import { Footer } from '@components/Footer/Footer';
 import { Element as Section } from 'react-scroll';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router } from 'react-router-dom';
 import { NavigationProvider } from '@src/contexts/NavigationContext';
 import lozad from 'lozad';
 import './App.css';
-
-interface SectionProps {
-  name: string;
-}
 
 function App() {
   useEffect(() => {
@@ -37,11 +31,14 @@ function App() {
               <Section name='projects'>
                 <Projects />
               </Section>
-              <Section name='about'>
+              {/* <Section name='about'>
                 <About />
-              </Section>
+              </Section> */}
               <Section name='skills'>
                 <Skills />
+              </Section>
+              <Section name='contact'>
+                <Contact />
               </Section>
             </div>
           </main>

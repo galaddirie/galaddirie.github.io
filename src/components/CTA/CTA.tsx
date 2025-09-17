@@ -1,6 +1,7 @@
 import React from 'react';
 import './cta-effects.css';
 import CTAVideo from '@src/assets/img/cta.gif';
+import { Link } from 'react-scroll';
 
 export function CTA() {
   return (
@@ -36,12 +37,13 @@ export function CTA() {
             Interested in working together? We should queue up a chat. I'll buy
             the coffee.
           </p>
-          <a
-            className='inline-block text-white rounded px-6 py-2 border-2 border-red-600 bg-black transition-colors duration-300 hover:bg-red-600 hover:text-black text-sm'
-            href='mailto:hello@galad.ca'
+          <Link
+            to='contact'
+            className='inline-block text-white rounded px-6 py-2 border-2 border-rose-600 bg-black transition-colors duration-300 hover:bg-rose-600 hover:text-black text-sm'
+            href='#contact'
           >
             Get Started
-          </a>
+          </Link>
         </div>
       </div>
 

@@ -6,7 +6,7 @@ import react from 'eslint-plugin-react';
 import tseslint from 'typescript-eslint';
 
 export default tseslint.config(
-  { 
+  {
     ignores: [
       'dist/',
       'build/',
@@ -16,8 +16,8 @@ export default tseslint.config(
       'vite.config.ts',
       'public/',
       '*.min.js',
-      '*.log'
-    ] 
+      '*.log',
+    ],
   },
   {
     extends: [js.configs.recommended, ...tseslint.configs.recommended],

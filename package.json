@@ -15,10 +15,13 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
+    "@emailjs/browser": "^4.4.1",
     "@types/node": "^18.15.3",
     "@types/react-lazy-load-image-component": "^1.5.3",
+    "framer-motion": "^12.23.13",
     "jquery": "^3.6.3",
     "lozad": "^1.16.0",
+    "lucide-react": "^0.544.0",
     "path": "^0.12.7",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",

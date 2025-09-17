@@ -1,14 +1,5 @@
 import React from 'react';
-import {
-  Link,
-  Button,
-  Element,
-  Events,
-  animateScroll as scroll,
-  scrollSpy,
-  scroller,
-} from 'react-scroll';
-import { LazyLoadComponent } from 'react-lazy-load-image-component';
+import { Link } from 'react-scroll';
 import './home-effects.css';
 
 import HeroVideo from '@src/assets/video/video.mp4';
@@ -53,18 +44,26 @@ export function Home() {
             <div className='text-center md:text-left w-full'>
               <div className='flex flex-col text-center md:text-left'>
                 <h1
-                  className="my-[30px] -mb-[15px] !font-['bd-geminis'] font-normal text-[96px] md:text-[150px] leading-[0.84] -tracking-[7px] text-white uppercase"
+                  className="my-[30px] -mb-[15px] !font-['bd-geminis']  text-[96px] md:text-[150px] leading-[0.84] md:-tracking-[7px] text-white uppercase"
                   style={{ textShadow: '0px 5px 5px #000000' }}
                 >
-                galad dirie
-                <span className='text-red-600 hidden md:inline'>.</span>
-              </h1>
-              <h2
-                className="mt-2 mb-0 font-['lores-9-plus-wide'] text-2xl font-normal uppercase text-white/90"
-                style={{ textShadow: '0px 5px 5px #000000' }}
-              >
-                full-stack developer
-              </h2>
+                  galad dirie
+                  <span className='text-rose-600 hidden md:inline'>.</span>
+                </h1>
+                <h2
+                  className="mt-2 mb-0 font-['lores-9-plus-wide'] text-2xl font-normal uppercase text-white/90"
+                  style={{ textShadow: '0px 5px 5px #000000' }}
+                >
+                  full-stack developer
+                </h2>
+                <div className='mt-6 flex flex-col sm:flex-row gap-4 justify-center md:justify-start cursor-pointer'>
+                  <Link
+                    to='projects'
+                    className='inline-block text-white rounded px-8 py-4 border-2 border-rose-600 bg-rose-600 transition-colors duration-300 hover:bg-black hover:text-white text-base font-semibold uppercase tracking-wide'
+                  >
+                    See Projects
+                  </Link>
+                </div>
               </div>
             </div>
           </div>

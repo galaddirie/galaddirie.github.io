@@ -1,10 +1,10 @@
 import React from 'react';
-import { SkillCardProps } from '@src/types/Skills';
+import { SkillCardProps, Skill } from '@src/types/Skills';
 
 export default function SkillCard({
   name,
   skills,
-  description,
+  description: _description,
   image,
 }: SkillCardProps) {
   return (
@@ -19,7 +19,7 @@ export default function SkillCard({
         {/* <p className="font-normal text-lg leading-5">{description}</p> */}
 
         <div className='mb-3'>
-          {skills.map((skill: any, index: any) => (
+          {skills.map((skill: Skill, index: number) => (
             <div className='skill-icon' key={index}>
               {skill.name}
             </div>

@@ -5,12 +5,9 @@
 
 body {
   font-family: 'lores-12', sans-serif;
-  font-weight: 300;
-  font-style: normal;
   color: #444444;
   background: linear-gradient(#030211 100vh, #000000 130vh, black);
 }
-
 
 h1,
 h2,
@@ -19,7 +16,4 @@ h4,
 h5,
 h6 {
   font-family: 'lores-9-plus-wide', sans-serif;
-
 }
-
-

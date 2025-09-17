@@ -32,7 +32,7 @@ const ProjectList = [
       'The tool is built using Python and the Scrapy framework, and allows users to scrape websites using a simple, declarative syntax.',
       'The tool is built using Python and the Scrapy framework, and allows users to scrape websites using a simple, declarative syntax.',
     ],
-    tech: ['python', 'scrapy', "10k Downloads"],
+    tech: ['python', 'scrapy', '10k Downloads'],
     github: [
       {
         url: 'https://github.com/galaddirie/silk',

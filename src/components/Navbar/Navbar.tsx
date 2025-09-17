@@ -1,22 +1,9 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef, useEffect, useCallback } from 'react';
 import { Link } from 'react-scroll';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { useNavigation } from '@src/contexts/NavigationContext';
 
 const SCROLL_THRESHOLD = 10;
-
-interface DotPosition {
-  left: string;
-  top: string;
-  width: string;
-  height: string;
-}
-
-interface ActiveDotProps {
-  dotPosition: DotPosition;
-  dotDirection: string;
-  handleAnimationEnd: () => void;
-}
 
 interface NavItemProps {
   item: {
@@ -25,7 +12,7 @@ interface NavItemProps {
     path: string;
     externalLink?: string;
   };
-  refs: Record<string, React.RefObject<HTMLElement>>;
+  refs: Record<string, React.RefObject<HTMLElement | null>>;
   handleSetActive: (to: string) => void;
   onNavClick: () => void;
 }
@@ -40,20 +27,11 @@ const NAV_ITEMS = [
   // { name: 'Blog', refName: 'blogRef', path: null, externalLink: 'https://blog.galad.ca/' },
 ];
 
-function ActiveDot({ dotPosition, dotDirection, handleAnimationEnd }: ActiveDotProps) {
-  return (
-    <div
-      className={`active-dot smear-to-${dotDirection}`}
-      style={dotPosition}
-      onAnimationEnd={handleAnimationEnd}
-    />
-  );
-}
 
 function NavItem({ item, refs, handleSetActive, onNavClick }: NavItemProps) {
   return (
     <li
-      ref={refs[item.refName]}
+      ref={refs[item.refName] as React.RefObject<HTMLLIElement>}
       className='flex mr-4 px-2 py-2 h-12 items-center justify-center lg:border-b-0 border-b border-gray-400/50 lg:border-b-transparent'
     >
       {item.path !== undefined ? (
@@ -107,11 +85,11 @@ export function Navbar() {
     blogRef: useRef<HTMLLIElement>(null),
   };
 
-  const handleSetActive = (to: string) => {
+  const handleSetActive = useCallback((to: string) => {
     setPreventNavUpdate(true);
     navigate(`${to}`, { replace: true });
     setActiveLink(to);
-  };
+  }, [navigate, setPreventNavUpdate]);
 
   const toggleMobileNav = () => {
     setIsMobileNavOpen(!isMobileNavOpen);

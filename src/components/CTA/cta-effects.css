@@ -1,6 +1,3 @@
-/* Custom effects for CTA component that can't be handled by Tailwind */
-
-/* Wave SVG positioning and transforms */
 #wave.top-wave {
   position: relative;
   top: -1px;
@@ -27,7 +24,6 @@
   opacity: 1;
 }
 
-/* CTA image positioning */
 .CTAimg {
   position: absolute;
   top: -105%;
@@ -38,7 +34,6 @@
   z-index: -1;
 }
 
-/* CTA video specific styles */
 .cta-video-container video {
   content: '';
   position: absolute;

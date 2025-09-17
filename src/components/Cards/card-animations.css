@@ -1,4 +1,3 @@
-/* Custom animations for project cards that can't be handled by Tailwind */
 @property --rotate {
   syntax: '<angle>';
   initial-value: 0deg;

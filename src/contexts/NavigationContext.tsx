@@ -11,14 +11,6 @@ const NavigationContext = createContext<NavigationContextProps | undefined>(
   undefined
 );
 
-export const useNavigation = () => {
-  const context = useContext(NavigationContext);
-  if (!context) {
-    throw new Error('useNavigation must be used within a NavigationProvider');
-  }
-  return context;
-};
-
 interface NavigationProviderProps {
   children: React.ReactNode;
 }
@@ -72,4 +64,12 @@ export const NavigationProvider: React.FC<NavigationProviderProps> = ({
       {children}
     </NavigationContext.Provider>
   );
+};
+
+export const useNavigation = () => {
+  const context = useContext(NavigationContext);
+  if (!context) {
+    throw new Error('useNavigation must be used within a NavigationProvider');
+  }
+  return context;
 };

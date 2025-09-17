@@ -1,6 +1,3 @@
-/* Custom effects for home page that can't be handled by Tailwind */
-
-/* Video container gradient overlay */
 .video-container::after {
   content: '';
   position: absolute;
@@ -12,14 +9,12 @@
   transition: opacity 400ms ease;
 }
 
-/* Video thumbnail blur effect */
 .video-thumbnail {
   filter: blur(20px);
   transform: scale(1.1);
   transition: visibility 0ms ease 400ms;
 }
 
-/* Hero video styles */
 .heroVideo {
   width: 100%;
   height: 100%;
