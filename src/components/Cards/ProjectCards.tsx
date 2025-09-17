@@ -72,7 +72,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
                 {project.tech.map(tech => (
                   <div
                     key={tech}
-                    className={`${tech} skill-icon px-2 py-1 bg-gray-800 text-white text-sm rounded`}
+                    className={`${tech} skill-icon px-2 py-1 bg-black text-white text-sm rounded`}
                   >
                     {tech.charAt(0).toUpperCase() + tech.slice(1)}
                   </div>
