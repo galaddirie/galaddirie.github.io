@@ -117,7 +117,7 @@ function NavItem({ item, refs, handleSetActive, onNavClick }: any) {
       ref={refs[item.refName]}
       className='flex mr-4 px-2 py-2 h-12 items-center justify-center lg:border-b-0 border-b border-gray-400/50 lg:border-b-transparent'
     >
-      {item.path ? (
+      {item.path !== undefined ? (
         <Link
           className="cursor-pointer flex flex-col font-semibold text-sm font-['lores-9-plus-wide'] uppercase text-black lg:text-white transition-colors duration-300 justify-center text-left hover:text-red-600 item-underline-container"
           to={item.path}
@@ -160,6 +160,7 @@ export function Navbar() {
   const refs = {
     logoRef: useRef<HTMLSpanElement>(null),
     navRef: useRef<HTMLDivElement>(null),
+    homeRef: useRef<HTMLLIElement>(null),
     projectsRef: useRef<HTMLLIElement>(null),
     aboutRef: useRef<HTMLLIElement>(null),
     skillsRef: useRef<HTMLLIElement>(null),
