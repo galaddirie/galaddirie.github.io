@@ -7,7 +7,26 @@ import portfolioImg from '@assets/img/projects/portfolio-img.png';
 import nycDataImg from '@assets/img/projects/nyc_data_image-img.png';
 import silkImg from '@assets/img/projects/silk-img.png';
 import browsergridImg from '@assets/img/projects/browsergrid-img.png';
+import hermitscaleImg from '@assets/img/projects/hermitscale.png';
 const ProjectList = [
+  {
+    title: 'HermitScale - Workflow Automation Platform',
+    image: hermitscaleImg,
+    description: [
+      "Built a durable workflow engine where executions sleep for months at near-zero cost, with each run's state checkpointed to a per-execution SQLite store and continuously replicated to S3 with Litestream.",
+      'Guaranteed safe single-writer progression across node failover with Postgres-backed leases and monotonic fence tokens checked at the SQLite commit boundary.',
+      'Designed a unified trigger and signal system for webhook, cron, polling, subscription, chat, and manual events on an ETS registry synced via Postgres LISTEN/NOTIFY.',
+      'Shipped a real-time workflow editor in Phoenix LiveView and Vue 3 with presence, undo/redo draft revisions, and a metadata-driven integration catalog for AI model providers.',
+    ],
+    tech: ['Elixir', 'Phoenix', 'LiveView', 'Vue', 'SQLite', 'PostgreSQL'],
+    github: [],
+    demo: [
+      {
+        url: 'https://hermitscale.com',
+        name: 'HermitScale',
+      },
+    ],
+  },
   {
     title: 'BrowserGrid',
     image: browsergridImg,
