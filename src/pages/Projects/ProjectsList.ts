@@ -7,7 +7,7 @@ import portfolioImg from '@assets/img/projects/portfolio-img.png';
 import nycDataImg from '@assets/img/projects/nyc_data_image-img.png';
 import silkImg from '@assets/img/projects/silk-img.png';
 import browsergridImg from '@assets/img/projects/browsergrid-img.png';
-import hermitscaleImg from '@assets/img/projects/hermitscale.png';
+import hermitscaleImg from '@assets/img/hermitscale-thumbnail.png';
 const ProjectList = [
   {
     title: 'HermitScale - Workflow Automation Platform',
